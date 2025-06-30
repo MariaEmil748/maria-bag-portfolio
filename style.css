@@ -1,0 +1,59 @@
+/* Custom styles for zipper and backpack */
+#backpack-container {
+  width: 18rem;
+  height: 18rem;
+  position: relative;
+}
+
+#backpack-closed, #backpack-open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.4s ease-in-out;
+  will-change: opacity;
+}
+
+#zipper {
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+}
+
+#zipper-pull {
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
+}
+
+#zipper-pull:hover {
+  transform: scale(1.1);
+}
+
+/* Experience cards styling (will be animated in JS) */
+#experience-cards .exp-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 1.25rem 1.5rem;
+  min-width: 200px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  will-change: transform;
+  color: #a05a1c;
+  border: none;
+}
+
+#experience-cards .exp-card:hover {
+  transform: translateY(-8px) scale(1.04) rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Add a subtle glow effect to the backpack when hoverable */
+#backpack-container:hover {
+  filter: none;
+}
+
+body {
+  background: #fff !important;
+} 

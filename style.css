@@ -1,59 +1,376 @@
-/* Custom styles for zipper and backpack */
-#backpack-container {
-  width: 18rem;
-  height: 18rem;
+body {
+  margin: 0;
+  padding: 0;
+  background: #FBF2E9;
+  min-height: 100vh;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  overflow-x: hidden !important;
   position: relative;
 }
 
-#backpack-closed, #backpack-open {
+.container {
+  position: relative;
+  width: 1200px;   /* Adjust as needed for your design */
+  height: 1000px;  /* Adjust as needed for your design */
+  background: transparent;
+}
+
+.main-title-line1 {
   position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.4s ease-in-out;
-  will-change: opacity;
+  left: 0px;
+  top: 137px;
+  font-family: 'Mynerve', cursive;
+  font-size: 128px;
+  color: #2d2d2d;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 2;
 }
 
-#zipper {
+.main-title-line2 {
+  position: absolute;
+  left: 730px;
+  top: 256px;
+  font-family: 'Mynerve', cursive;
+  font-size: 128px;
+  color: #2d2d2d;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.bag-highlight {
+  color: #83562D;
+}
+
+.main-image {
+  position: absolute;
+  left: 274px;
+  top: 234px;
+  width: 771.74px;
+  height: 891.82px;
+  object-fit: contain;
+  display: block;
   pointer-events: none;
-  transition: transform 0.1s ease-out;
 }
 
-#zipper-pull {
-  cursor: pointer;
-  transition: transform 0.1s ease-out;
+.letter-image {
+	position: absolute;
+	top: 650%;
+  right: 2%;
+  opacity: 0;
+	/* left: 55%; */
+	width: 600px;
+	height: 200px;
+	/* -webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%); */
+	cursor: pointer;
 }
 
-#zipper-pull:hover {
-  transform: scale(1.1);
+.animated-mail {
+	position: absolute;
+	height: 150px;
+	width: 200px;
+	-webkit-transition: .4s;
+	-moz-transition: .4s;
+	transition: .4s;
+	
+	.body {
+		position: absolute;
+		bottom: 0;
+		width: 50;
+		height: 0;
+		border-style: solid;
+		border-width: 0 0 200px 600px;
+		border-color: transparent transparent #B87A41 transparent;
+		z-index: 2;
+	}
+	
+	.top-fold {
+		position: absolute;
+		top: -50px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 200px 300px 0 300px;
+		-webkit-transform-origin: 50% 0%;
+		-webkit-transition: transform .4s .4s, z-index .2s .4s;
+		-moz-transform-origin: 50% 0%;
+		-moz-transition: transform .4s .4s, z-index .2s .4s;
+		transform-origin: 50% 0%;
+		transition: transform .4s .4s, z-index .2s .4s;
+		border-color: #AC6728 transparent transparent transparent;
+		z-index: 2;
+	}
+	
+	.back-fold {
+		position: absolute;
+		bottom: 0;
+		width: 400px;
+		height: 100px;
+		background: #AC6728;
+		z-index: 0;
+	}
+	
+	.left-fold {
+		position: absolute;
+		bottom: 0;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 200px 0 0px 600px;
+		border-color: transparent transparent transparent #C69568;
+		z-index: 2;
+	}
+	
+	.letter {
+		left: 20px;
+		bottom: 100px;
+		position: absolute;
+		width: 550px;
+		height: 60px;
+		background: #FBF2E9;
+		z-index: 1;
+		overflow: hidden;
+		-webkit-transition: .4s .2s;
+		-moz-transition: .4s .2s;
+		transition: .4s .2s;
+		
+		.letter-border {
+			height: 10px;
+			width: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        #B77A42,
+        #B77A42 8px,
+        transparent 8px,
+        transparent 18px
+      );
+		}
+	}
 }
 
-/* Experience cards styling (will be animated in JS) */
-#experience-cards .exp-card {
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  padding: 1.25rem 1.5rem;
-  min-width: 200px;
-  min-height: 120px;
+.shadow {
+	position: absolute;
+	top: 200px;
+	left: 140%;
+	width: 800px;
+	height: 30px;
+	transition: .4s;
+	transform: translateX(-50%);
+	-webkit-transition: .4s;
+	-webkit-transform: translateX(-50%);
+	-moz-transition: .4s;
+	-moz-transform: translateX(-50%);
+	
+	border-radius: 100%;
+	background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
+}
+
+	.letter-image:hover {
+		.animated-mail {
+			transform: translateY(50px);
+			-webkit-transform: translateY(50px);
+			-moz-transform: translateY(50px);
+		}
+		
+		.animated-mail .top-fold {
+			transition: transform .4s, z-index .2s;
+			transform: rotateX(180deg);
+			-webkit-transition: transform .4s, z-index .2s;
+			-webkit-transform: rotateX(180deg);
+			-moz-transition: transform .4s, z-index .2s;
+			-moz-transform: rotateX(180deg);
+			z-index: 0;
+		}
+		
+		.animated-mail .letter {
+			height: 180px;
+		}
+		
+		.shadow {
+			width: 200px;
+		}
+	}
+
+.envelope-icons {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-  will-change: transform;
-  color: #a05a1c;
-  border: none;
+  gap: 24px;
+  margin-top: -8px;
+  justify-content: center;
+  align-items: center;
 }
 
-#experience-cards .exp-card:hover {
-  transform: translateY(-8px) scale(1.04) rotate(-2deg);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.2s;
 }
 
-/* Add a subtle glow effect to the backpack when hoverable */
-#backpack-container:hover {
-  filter: none;
+.icon-link svg {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(131, 86, 45, 0.10);
+  border-radius: 12px;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  background: #fff !important;
-} 
+.icon-link:hover, .icon-link:focus {
+  background: #f3e3d1;
+}
+
+.icon-link:hover svg, .icon-link:focus svg {
+  transform: scale(1.38) rotate(-3deg);
+  box-shadow: 0 4px 16px rgba(131, 86, 45, 0.18);
+}
+
+.icon-label {
+  font-family: 'Mynerve', cursive;
+  font-size: 1.1rem;
+  color: #B87A41;
+  margin-left: 12px;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.icon-link:hover .icon-label,
+.icon-link:focus .icon-label {
+  color: #83562D;
+  text-decoration: underline;
+}
+
+.letter-title {
+  text-align: center;
+}
+
+.main-message {
+  color: #B87A41; /* or #83562D for a darker brown */
+  font-family: 'Mynerve', cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+  display: block;
+  margin: 0 auto 8px auto;
+  transition: color 0.2s;
+}
+
+.letter-title:hover .main-message,
+.letter-title:focus .main-message {
+  color: #83562D;
+}
+
+.card-image {
+  position: absolute;
+  left: 40px;
+  top: 900px;
+  width: 320px;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.intro-text {
+  position: absolute;
+  left: 400px;
+  top: 1200px;
+  font-size: 60px;
+  line-height: 1.1;
+  z-index: 3;
+}
+
+.intro-normal {
+  font-family: 'Inter', sans-serif;
+  font-size: 60px;
+  color: #2d2d2d;
+}
+
+.maria-name {
+  font-family: 'Mynerve', cursive;
+  font-size: 60px;
+  color: #865628;
+}
+
+.intro-vector {
+  position: absolute;
+  left: -150px;
+  top: 1500px;
+  width: 500px;
+  height: 600px;
+  object-fit: contain;
+  z-index: 0;
+  rotate: 180deg;
+}
+
+/* .bag-stack {
+  position: absolute;
+  left: 5%;
+  top: 350%;
+  width: 340px;
+  height: 420px;
+  transform: translateX(-50%) scale(0.6);
+  z-index: 10;
+  pointer-events: none;
+}
+
+#bagLayer2 {
+  position: absolute;
+  left: 144%;
+  top: 45px;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+#bagEnvelope {
+  position: absolute;
+  left: 145%;
+  top: 320px;
+  transform: translateX(-50%) rotate(90deg);
+  z-index: 2;
+} */
+.scroll-container {
+  position: relative;
+  width: 100%;
+  top: 2000px;
+}
+.bag-stack {
+  width: 340px;
+  height: 420px;
+}
+.bag-layer {
+  width: 340px;
+  height: 420px;
+}
+.bag-layer-1 {
+  position: absolute;
+  z-index: 1;
+}
+.bag-layer-envelope {
+  position: absolute;
+  width: 180px;
+  height: 60px;
+  top: 25%;
+  left: 32%;
+  z-index: 2;
+  rotate: 90deg;
+  aspect-ratio: 3/1;
+}
+.bag-layer-2 {
+  width: 350px;
+  height: 370px;
+  position: absolute;
+  top: 3.9%;
+  left: 6.3%;
+  z-index: 3;
+}
+

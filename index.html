@@ -2,46 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maria Emil Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <meta name="viewport" content="width=1200, initial-scale=1.0" />
+  <title>Maria's Bag</title>
+  <!-- Import Mynerve font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Mynerve&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-white min-h-screen font-sans">
-  <!-- Hero Section -->
-  <section id="hero" class="flex flex-col md:flex-row items-center justify-center min-h-[60vh] px-6 py-12 gap-8">
-    <div class="md:w-1/2 flex flex-col justify-center items-center md:items-start">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4" style="color: #a05a1c;">text</h1>
-      <!-- You can replace 'text' with your About Me content -->
+<body>
+  <div class="container">
+    <div class="main-title-line1">WELCOME TO</div>
+    <div class="main-title-line2">MY <span class="bag-highlight">BAG</span></div>
+    <img src="assets/vector.png" alt="Cartoon with background" class="main-image" />
+    <img src="assets/card.png" alt="Card" class="card-image" />
+    <div class="intro-text">
+      <span class="intro-normal">Hi, I'm </span><span class="maria-name">Maria Emil</span><br>
+      <span class="intro-normal">a passionate UI/UX Designer and Front-End Developer.</span>
     </div>
-    <div class="md:w-1/2 flex justify-center">
-      <div class="relative" style="width: 340px; height: 340px;">
-        <img src="assets/vector.png" alt="Vector Background" class="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none" />
-        <img src="assets/cartoon.png" alt="Cartoon Illustration" class="absolute inset-0 w-full h-full object-contain z-10" style="left: 35px;" />
+    <img src="assets/vector1.png" alt="Vector Accent" class="intro-vector" />
+  </div>
+  
+  
+
+  <div class="container-fluid d-flex scroll-container position-relative bg-primary">
+    <div class="bag-stack position-relative bg-danger" id="bagStack">
+      <img src="assets/first bag.png" class="bag-layer bag-layer-1" id="bagLayer1" alt="First Bag" />
+      <img src="assets/envelope.png" class="bag-layer bag-layer-envelope" id="bagEnvelope" alt="Envelope" />
+      <img src="assets/second bag.png" class="bag-layer bag-layer-2" id="bagLayer2" alt="Second Bag" />
+    </div>
+    <div class="spacer"></div>
+  </div>
+
+  <div class="letter-image bg-danger">
+    <div class="animated-mail">
+      <div class="back-fold"></div>
+      <div class="letter">
+        <div class="letter-border"></div>
+        <div class="letter-title">
+          <h3><span class="main-message">You've seen what's in my bag now let's talk</span></h3>
+          <div class="envelope-icons">
+            <!-- LinkedIn Icon -->
+            <a href="https://www.linkedin.com/in/maria-emil-956a93219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="icon-link">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="10" fill="#83562D"/>
+                <path d="M16 20h4v12h-4V20zm2-6a2 2 0 110 4 2 2 0 010-4zm5 6h3.84v1.64h.056c.534-1.012 1.84-2.024 3.784-2.024 4.05 0 4.8 2.664 4.8 6.124V32h-4v-5.6c0-1.336-.024-3.06-1.86-3.06-1.86 0-2.142 1.454-2.142 2.954V32h-4V20z" fill="#FBF2E9"/>
+              </svg>
+              <span class="icon-label">Maria Emil</span>
+            </a>
+            <!-- Gmail Icon -->
+            <a href="mailto:mariaemil4t2@gmail.com" class="icon-link">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="10" fill="#FBF2E9"/>
+                <path d="M10 16v16A4 4 0 0014 36h20a4 4 0 004-4V16a4 4 0 00-4-4H14a4 4 0 00-4 4zm4 0l10 8 10-8v16H14V16z" fill="#B87A41"/>
+              </svg>
+              <span class="icon-label">mariaemil4t2@gmail.com</span>
+            </a>
+          </div>
+        </div>
+        <div class="letter-context"></div>
       </div>
+      <div class="top-fold"></div>
+      <div class="body"></div>
+      <div class="left-fold"></div>
     </div>
-  </section>
+    <div class="shadow"></div>
+  </div>
 
-  <!-- Backpack Section -->
-  <section id="backpack" class="flex flex-col md:flex-row items-center justify-center min-h-[50vh] py-12 gap-16">
-    <!-- Card Holder (ID Badge) -->
-    <div class="flex flex-col items-center">
-      <img src="assets/me.png" alt="ID Badge" class="w-32 h-48 object-cover rounded-lg shadow-lg" />
-    </div>
-    <!-- Backpack and Zipper -->
-    <div id="backpack-container" class="relative cursor-pointer flex justify-center items-center">
-      <img id="backpack-closed" src="assets/backpack-closed.png" alt="Backpack Closed" class="w-56 md:w-72 drop-shadow-xl absolute z-10" />
-      <img id="backpack-open" src="assets/backpack-open.png" alt="Backpack Open" class="w-56 md:w-72 drop-shadow-xl absolute z-10 hidden" />
-      <!-- Zipper SVG overlay -->
-      <svg id="zipper" class="absolute left-1/2 top-8 -translate-x-1/2 z-20" width="60" height="80" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="25" y="0" width="10" height="60" rx="5" fill="#bbb" />
-        <rect id="zipper-pull" x="20" y="60" width="20" height="15" rx="5" fill="#888" />
-      </svg>
-    </div>
-    <div id="experience-cards" class="flex flex-wrap justify-center gap-4 mt-10 z-0"></div>
-  </section>
-
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
-</html> 
+</html>

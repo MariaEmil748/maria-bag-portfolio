@@ -1,0 +1,19 @@
+{
+  "name": "maria-portfolio",
+  "version": "1.0.0",
+  "description": "Maria's Portfolio Website",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "gsap": "^3.13.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

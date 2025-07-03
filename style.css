@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #FBF2E9;
+  background: #FBF2E9 !important;
   min-height: 100vh;
   /* display: flex;
   align-items: center;

@@ -185,15 +185,12 @@ window.addEventListener('DOMContentLoaded', () => {
     opacity: 0,
   },8.5);
 
-  tl.fromTo('.letter-image',{
-    opacity:0,
-    display: 'none',
-  }, {
+  tl.from('.letter-image', {
+    opacity: 0,
+  }, 8);
+  tl.to('.letter-image', {
     opacity: 1,
-    duration: 0.2,
-    display: 'block',
-  },8.6);
-  
+  }, 8.5);
 
 
   

@@ -3,87 +3,18 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// // Responsive values for movement
-// function getBagPath() {
-//   const container = document.querySelector('.scroll-container');
-//   const containerHeight = container ? container.offsetHeight : window.innerHeight * 4;
-//   const sectionHeight = containerHeight / 5;
-//   const yStep = sectionHeight;
-//   // Responsive horizontal positions (relative to the left edge of the scroll-container)
-//   const xLeft = 0;
-//   const xMiddle = 400;
-//   const xRight = 800;
-//   return [
-//     { x: xLeft,   y: 0 },                // 1. Start (left)
-//     { x: xMiddle, y: yStep },            // 2. Down + middle
-//     { x: xRight,  y: yStep * 2 },        // 3. Down + right
-//     { x: xMiddle, y: yStep * 3 },        // 4. Down + middle
-//     { x: xLeft,   y: yStep * 4 }         // 5. Down + left (end)
-//   ];
-// }
-
-// function animateBagStack() {
-//   const path = getBagPath();
-//   const tl = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: '#bagStack',
-//       start: 'top center',
-//       end: '+=3000', // Ensures enough scroll distance for all sections
-//       scrub: 1,
-//       pin: false,
-//       invalidateOnRefresh: true,
-//     }
-//   });
-//   // Animate through the 5 points (4 transitions)
-//   tl.to('#bagStack', {
-//     x: path[1].x,
-//     y: path[1].y,
-//     duration: 1,
-//     ease: 'power2.inOut',
-//   }, 0.0)
-//   .to('#bagStack', {
-//     x: path[2].x,
-//     y: path[2].y,
-//     duration: 1,
-//     ease: 'power2.inOut',
-//   }, 0.25)
-//   .to('#bagStack', {
-//     x: path[3].x,
-//     y: path[3].y,
-//     duration: 1,
-//     ease: 'power2.inOut',
-//   }, 0.5)
-//   .to('#bagStack', {
-//     x: path[4].x,
-//     y: path[4].y,
-//     duration: 1,
-//     ease: 'power2.inOut',
-//   }, 0.75);
-// }
-
-// // Run on load and resize
-// animateBagStack();
-// window.addEventListener('resize', () => {
-//   gsap.killTweensOf('#bagStack');
-//   animateBagStack();
-// });
-
-// // Envelope slides up and fades in (starts after bag moves a bit)
-// gsap.fromTo('#bagEnvelope',
-//   { y: 60, opacity: 0 },
-//   { y: -60, opacity: 1, duration: 1, ease: 'power2.inOut' },
-//   0.3
-// )
-
-// // Second bag fades in (after envelope is visible)
-// gsap.fromTo('#bagLayer2',
-//   { opacity: 0 },
-//   { opacity: 1, duration: 0.7, ease: 'power2.inOut' },
-//   0.6
-// );
+const coffeeContainer = document.querySelector('.container-coffee');
+coffeeContainer.addEventListener('click', () => {
+  coffeeContainer.classList.add('arm-down');
+  setTimeout(() => {
+    coffeeContainer.classList.remove('arm-down');
+  }, 350); // Arm stays down for 350ms, then goes back up
+});
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -92,106 +23,180 @@ window.addEventListener('DOMContentLoaded', () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: '.scroll-container',
-      start: 'top 25%',
-      end: `+=${6000}`,
+      start: 'top 10%',
+      end: '+=3200',
       scrub: 1,
-      markers: true,
+      markers: false,
     },
   });
+
+  const screenWidth = window.innerWidth;
+  const leftEdge = 0;
+  const rightEdge = screenWidth - 420; // Adjust 300 to bag width if needed
+
+  // 1. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
-    x: 800,
-    y: 1000,
-    ease: 'none',
+    x: rightEdge,
+    y: 400,
+    rotate: 0, // Straight at right edge
+    ease: 'power2.inOut',
     duration: 1,
-    rotate: 15,
+    onUpdate: function() {
+      const progress = this.progress();
+      const angle = -Math.sin(progress * Math.PI) * 18; // -18deg max (left)
+      gsap.set('.bag-stack', { rotate: angle });
+    }
   }, 0);
-  // Delay after step 1
-  tl.to({}, { duration: 0.5 }, 1);
 
+  // 2. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
-    x: 200,
-    y: 2000,
-    ease: 'none',
+    x: leftEdge,
+    y: 800,
+    rotate: 0, // Straight at left edge
+    ease: 'power2.inOut',
     duration: 1,
-    rotate: -15,
-  }, 1.5);
+    onUpdate: function() {
+      const progress = this.progress();
+      const angle = Math.sin(progress * Math.PI) * 18; // 18deg max (right)
+      gsap.set('.bag-stack', { rotate: angle });
+    }
+  }, 1);
 
-  // Delay after step 2
-  tl.to({}, { duration: 0.5 }, 2.5);
-
+  // 3. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
-    x: 800,
-    y: 3000,
-    ease: 'none',
+    x: rightEdge,
+    y: 1200,
+    rotate: 0,
+    ease: 'power2.inOut',
     duration: 1,
-    rotate: 15,
+    onUpdate: function() {
+      const progress = this.progress();
+      const angle = -Math.sin(progress * Math.PI) * 12;
+      gsap.set('.bag-stack', { rotate: angle });
+    }
+  }, 2);
+
+  // 4. Move to left edge, rotate in the middle, end straight
+  tl.to('.bag-stack', {
+    x: leftEdge,
+    y: 1600,
+    rotate: 0,
+    ease: 'power2.inOut',
+    duration: 1,
+    onUpdate: function() {
+      const progress = this.progress();
+      const angle = Math.sin(progress * Math.PI) * 8;
+      gsap.set('.bag-stack', { rotate: angle });
+    }
   }, 3);
 
-  // Delay after step 3
-  tl.to({}, { duration: 0.5 }, 4);
-
+  // 5. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
-    x: 200,
-    y: 4000,
-    ease: 'none',
+    x: rightEdge,
+    y: 2000,
+    rotate: 0,
+    ease: 'power2.inOut',
     duration: 1,
-    rotate: -15,
-  }, 4.5);
+    onUpdate: function() {
+      const progress = this.progress();
+      const angle = -Math.sin(progress * Math.PI) * 5;
+      gsap.set('.bag-stack', { rotate: angle });
+    }
+  }, 4);
 
-  // Delay after step 4
-  tl.to({}, { duration: 0.5 }, 5.5);
-  
+  // 6. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
-    x: 800,
-    y: 5000,
-    ease: 'none',
+    x: leftEdge,
+    y: 2400,
+    rotate: 0,
+    ease: 'power2.inOut',
     duration: 1,
-    rotate: 15,
+    onUpdate: function() {
+      const progress = this.progress();
+      const angle = Math.sin(progress * Math.PI) * 3;
+      gsap.set('.bag-stack', { rotate: angle });
+    }
+  }, 5);
+
+  // 7. Final: Center and straighten the bag
+  tl.to('.bag-stack', {
+    x: (screenWidth - 420) / 2,
+    y: 2600,
+    rotate: 0, // End at 0 degrees
+    ease: 'power2.inOut',
+    duration: 1,
   }, 6);
 
-  // Delay after step 5
-  tl.to({}, { duration: 0.5 }, 7);
-
-  tl.to('.bag-stack', {
-    x: 200,
-    y: 6000,
-    ease: 'none',
-    duration: 1,
-    rotate: 0,
-  }, 7.5);
-
+  // Envelope and letter animation (keep as is)
   tl.fromTo('#bagEnvelope', {
     y: 60,
   }, {
-    y: -150,
+    y: -120,
     duration: 1,
     ease: 'power2.inOut',
-  }, 7.5);
-  
-  tl.to('#bagEnvelope' , {
-    x: 592,
-    duration: 1,
-    ease: 'power2.inOut',
-  }, 8);
+  }, 6.5);
 
-  tl.to('#bagEnvelope' , {
-    y: 145,
-    rotate: 0,
-    scale: 3.33,
+  tl.to('#bagEnvelope', {
+    x: 350,
     duration: 1,
     ease: 'power2.inOut',
-  },8);
-  tl.to('#bagEnvelope' , {
+  }, 7);
+
+  tl.to('#bagEnvelope', {
+    y: 100,
+    rotate: 0,
+    scale: 2.5,
+    duration: 1,
+    ease: 'power2.inOut',
+  }, 7);
+
+  tl.to('#bagEnvelope', {
     opacity: 0,
-  },8.5);
+  }, 7.5);
 
   tl.from('.letter-image', {
     opacity: 0,
-  }, 8);
+  }, 7);
+
   tl.to('.letter-image', {
     opacity: 1,
-  }, 8.5);
+  }, 7.5);
 
 
-  
+  gsap.utils.toArray('.animated-left').forEach(el => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 80%',
+        toggleActions: 'play reverse play reverse' // Enable reverse animation
+      },
+      opacity: 0,
+       x: -80,         // Animate from the left
+      rotate: -8, 
+      duration: 1,
+      ease: 'power2.out'
+    });
+  });
+
+  gsap.utils.toArray('.animated-right').forEach(el => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 80%',
+        toggleActions: 'play reverse play reverse' // Enable reverse animation
+      },
+      opacity: 0,
+       x: 80,         // Animate from the left
+      rotate: -8, 
+      duration: 1,
+      ease: 'power2.out'
+    });
+  });
+
+  // Initialize Swiper
+  new Swiper('.mySwiper', {
+    effect: 'cards',
+    grabCursor: true,
+  });
 });
+

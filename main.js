@@ -90,42 +90,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }, 3);
 
-  // 5. Move to right edge, rotate in the middle, end straight
-  tl.to('.bag-stack', {
-    x: rightEdge,
-    y: 2000,
-    rotate: 0,
-    ease: 'power2.inOut',
-    duration: 1,
-    onUpdate: function() {
-      const progress = this.progress();
-      const angle = -Math.sin(progress * Math.PI) * 5;
-      gsap.set('.bag-stack', { rotate: angle });
-    }
-  }, 4);
-
-  // 6. Move to left edge, rotate in the middle, end straight
-  tl.to('.bag-stack', {
-    x: leftEdge,
-    y: 2400,
-    rotate: 0,
-    ease: 'power2.inOut',
-    duration: 1,
-    onUpdate: function() {
-      const progress = this.progress();
-      const angle = Math.sin(progress * Math.PI) * 3;
-      gsap.set('.bag-stack', { rotate: angle });
-    }
-  }, 5);
-
-  // 7. Final: Center and straighten the bag
-  tl.to('.bag-stack', {
-    x: (screenWidth - 420) / 2,
-    y: 2600,
-    rotate: 0, // End at 0 degrees
-    ease: 'power2.inOut',
-    duration: 1,
-  }, 6);
 
   // Envelope and letter animation (keep as is)
   tl.fromTo('#bagEnvelope', {
@@ -134,13 +98,13 @@ window.addEventListener('DOMContentLoaded', () => {
     y: -120,
     duration: 1,
     ease: 'power2.inOut',
-  }, 6.5);
+  }, 3);
 
   tl.to('#bagEnvelope', {
     x: 350,
     duration: 1,
     ease: 'power2.inOut',
-  }, 7);
+  }, 3.5);
 
   tl.to('#bagEnvelope', {
     y: 100,
@@ -148,19 +112,19 @@ window.addEventListener('DOMContentLoaded', () => {
     scale: 2.5,
     duration: 1,
     ease: 'power2.inOut',
-  }, 7);
+  }, 5);
 
   tl.to('#bagEnvelope', {
     opacity: 0,
-  }, 7.5);
+  }, 5.5);
 
   tl.from('.letter-image', {
     opacity: 0,
-  }, 7);
+  }, 4);
 
   tl.to('.letter-image', {
     opacity: 1,
-  }, 7.5);
+  }, 8.5);
 
 
   gsap.utils.toArray('.animated-left').forEach(el => {

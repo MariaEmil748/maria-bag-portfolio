@@ -3,9 +3,6 @@ body {
   padding: 0;
   background: #FBF2E9 !important;
   min-height: 100vh;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   overflow-x: hidden !important;
   position: relative;
 }
@@ -19,7 +16,6 @@ body {
   display: inline-block;
   z-index: 10;
 }
-
 
 .container {
   position: relative;
@@ -69,15 +65,11 @@ body {
 
 .letter-image {
 	position: absolute;
-	top: 150%;
+	top: 101%;
   right: 2%;
-  opacity: 0;
-	/* left: 55%; */
+  opacity: 1;
 	width: 600px;
 	height: 200px;
-	/* -webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%); */
 	cursor: pointer;
 }
 
@@ -1130,7 +1122,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-
 .card-book-title {
   margin-bottom: 3px;
   font-size: 2.2rem;
@@ -1153,16 +1144,9 @@ body {
   font-size: 22px;
   font-weight: bold;
   color: #fff;
-  background: #B87A41;
+  background: #B87A41 !important;
   box-shadow: 0 4px 16px rgba(131,86,45,0.13);
 }
-
-.swiper-slide:nth-child(1) { background-color: #B87A41; }
-.swiper-slide:nth-child(2) { background-color: #B87A41; }
-.swiper-slide:nth-child(3) { background-color: #B87A41;}
-.swiper-slide:nth-child(4) { background-color: #B87A41; }
-.swiper-slide:nth-child(5) { background-color: #B87A41; }
-.swiper-slide:nth-child(6) { background-color: #B87A41; }
 
 .section-title {
   margin-bottom: 3px;
@@ -1221,9 +1205,42 @@ body {
   background-color: #673b01;
 }
 
+.swiper-flex-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 36px;
+  margin-top: 90px;   /* Increased to move the slider further down */
+  margin-bottom: 0;
+  position: relative;
+  top: -80px; /* Adjust to move the swiper down */
+  left: -10px;
+}
+
+.swiper-title {
+  margin: 0;
+  font-size: 2rem;
+  background: rgba(251, 242, 233, 0.85);
+  padding: 18px 24px;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(131, 86, 45, 0.07);
+  color: #000000;
+  white-space: nowrap;
+  position: relative;
+  left: 80px; /* Move the title to the right */
+  top: 100px;
+}
+
+.swiper {
+  margin: 0; /* Remove default margin to align with title */
+  position: relative;
+  top: 0;
+}
+
 /* Add to your style.css */
 .swiper-instruction {
-  position: static;
+  position: relative;
+  top: -200px;
+  left: 80px;
   margin-top: 8px;            /* Less space above, moves it up */
   margin-left: 0;
   display: flex;
@@ -1232,12 +1249,8 @@ body {
   flex-direction: row;
   font-size: 1.3rem;
   color: #83562D;
-  background: rgba(251, 242, 233, 0.95);
-  padding: 14px 28px;
-  border-radius: 18px;
   box-shadow: 0 2px 12px rgba(131, 86, 45, 0.07);
   gap: 16px;
-  z-index: 20;
   pointer-events: none;
   width: fit-content;
   max-width: 90vw;
@@ -1247,7 +1260,6 @@ body {
   display: block;
   line-height: 1.4;
   white-space: normal;
-  /* Force two lines for clarity */
   max-width: 260px;
   text-align: left;
 }
@@ -1258,30 +1270,3 @@ body {
   margin-top: 2px;
 }
 
-.swiper-flex-row {
-  display: flex;
-  justify-content: flex-start;
-  gap: 36px;
-  margin-top: 90px;   /* Increased to move the slider further down */
-  margin-bottom: 0;
-  position: relative;
-  top: 0;
-  left: -120px;
-}
-
-.swiper-title {
-  margin: 0;
-  font-size: 2rem;
-  background: rgba(251, 242, 233, 0.85);
-  padding: 18px 24px;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(131, 86, 45, 0.07);
-  color: #83562D;
-  white-space: nowrap;
-}
-
-.swiper {
-  margin: 0; /* Remove default margin to align with title */
-  position: relative;
-  top: 0;
-}

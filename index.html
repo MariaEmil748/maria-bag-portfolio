@@ -27,30 +27,32 @@
 
 
 
-  <div class="container-coffee">
-    <div class="coffee-header">
-      <div class="coffee-header__buttons coffee-header__button-one"></div>
-      <div class="coffee-header__buttons coffee-header__button-two"></div>
-      <div class="coffee-header__display"></div>
-      <div class="coffee-header__details"></div>
+  <div class="container-fluid g-0" id="coffeeContainer">
+    <div class="container-coffee">
+      <div class="coffee-header">
+        <div class="coffee-header__buttons coffee-header__button-one"></div>
+        <div class="coffee-header__buttons coffee-header__button-two"></div>
+        <div class="coffee-header__display"></div>
+        <div class="coffee-header__details"></div>
+      </div>
+      <div class="coffee-medium">
+        <div class="coffe-medium__exit"></div>
+        <div class="coffee-medium__arm"></div>
+        <div class="coffee-medium__liquid"></div>
+        <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+        <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+        <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+        <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+        <div class="coffee-medium__cup"></div>
+      </div>
+      <div class="coffee-footer"></div>
     </div>
-    <div class="coffee-medium">
-      <div class="coffe-medium__exit"></div>
-      <div class="coffee-medium__arm"></div>
-      <div class="coffee-medium__liquid"></div>
-      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
-      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
-      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
-      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
-      <div class="coffee-medium__cup"></div>
+    <div class="coffee-message main-text-style animated-left">
+      <span class="bag-highlight">Caffeine</span> runs in my code, join me for a cup while we check what’s inside the bag.☕
     </div>
-    <div class="coffee-footer"></div>
-  </div>
-  <div class="coffee-message main-text-style animated-left">
-    <span class="bag-highlight">Caffeine</span> runs in my code, join me for a cup while we check what’s inside the bag.☕
   </div>
 
-  <div class="container-fluid d-flex scroll-container position-relative ">
+  <div class="container-fluid d-flex scroll-container position-relative" id="bagContainer">
     <div class="bag-stack position-relative " id="bagStack">
       <img src="assets/first bag.png" class="bag-layer bag-layer-1" id="bagLayer1" alt="First Bag" />
       <img src="assets/envelope.png" class="bag-layer bag-layer-envelope" id="bagEnvelope" alt="Envelope" />
@@ -59,42 +61,10 @@
     <div class="spacer"></div>
   </div>
 
-  <div class="letter-image bg-danger">
-    <div class="animated-mail">
-      <div class="back-fold"></div>
-      <div class="letter">
-        <div class="letter-border"></div>
-        <div class="letter-title">
-          <h3><span class="main-message">You've seen what's in my bag now let's talk</span></h3>
-          <div class="envelope-icons">
-            <!-- LinkedIn Icon -->
-            <a href="https://www.linkedin.com/in/maria-emil-956a93219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="icon-link">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <rect width="48" height="48" rx="10" fill="#83562D"/>
-                <path d="M16 20h4v12h-4V20zm2-6a2 2 0 110 4 2 2 0 010-4zm5 6h3.84v1.64h.056c.534-1.012 1.84-2.024 3.784-2.024 4.05 0 4.8 2.664 4.8 6.124V32h-4v-5.6c0-1.336-.024-3.06-1.86-3.06-1.86 0-2.142 1.454-2.142 2.954V32h-4V20z" fill="#FBF2E9"/>
-              </svg>
-              <span class="icon-label">Maria Emil</span>
-            </a>
-            <!-- Gmail Icon -->
-            <a href="mailto:mariaemil4t2@gmail.com" class="icon-link">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <rect width="48" height="48" rx="10" fill="#FBF2E9"/>
-                <path d="M10 16v16A4 4 0 0014 36h20a4 4 0 004-4V16a4 4 0 00-4-4H14a4 4 0 00-4 4zm4 0l10 8 10-8v16H14V16z" fill="#B87A41"/>
-              </svg>
-              <span class="icon-label">mariaemil4t2@gmail.com</span>
-            </a>
-          </div>
-        </div>
-        <div class="letter-context"></div>
-      </div>
-      <div class="top-fold"></div>
-      <div class="body"></div>
-      <div class="left-fold"></div>
-    </div>
-    <div class="shadow"></div>
-  </div>
 
-  <div class="cv-section main-text-style animated-right">
+
+  <div class="container-fluid g-0 bg-danger d-flex align-items-center vh-100" id="cvSection">
+    <div class="cv-section main-text-style animated-right bg-success">
     <span class="cv-text">
       Before we unpack the bag check out the full story.<br>
       <strong>Download my CV:</strong>
@@ -103,8 +73,9 @@
       <span>Download CV</span>
     </a>
   </div>
+  </div>
 
-  <section class="projects-section animated-left">
+  <section class="projects-section animated-left bg-primary vh-100" id="projectsSection">
     <h2 class="projects-title main-text-style animated-right">My Projects</h2>
     <div class="projects-grid">
       <div class="project-card ">
@@ -174,104 +145,104 @@ DRESSCODE is a stylish shop for clothes, makeup, and accessories, with easy navi
   </section>
 
 
-<div class="frontbackcards-wrapper animated-right">
-  <h2 class="card-book-title main-text-style animated-left">My Experience</h2>
-  <div class="frontbackcards-row">
-    <div class="frontbackcard">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/Group 1.1.png" alt="Book Illustration" class="background" />
-          <img src="assets/depi.png" alt="Depi" class="card-logo" />
+  <div class="frontbackcards-wrapper animated-right bg-warning vh-100" id="experienceSection">
+    <h2 class="card-book-title main-text-style animated-left">My Experience</h2>
+    <div class="frontbackcards-row">
+      <div class="frontbackcard">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="assets/Group 1.1.png" alt="Book Illustration" class="background" />
+            <img src="assets/depi.png" alt="Depi" class="card-logo" />
+          </div>
+          <div class="card-back">
+            <img src="assets/Group 2.1.png" alt="Book Illustration" class="background" />
+            <h3>INTERN</h3>
+            <p> Digital Egypt Pioneers Initiative [Front-End Developer]
+              <span class="intern-time">(Jul 2024 - Aug 2024)</span>
+            </p>
+          </div>
         </div>
-        <div class="card-back">
-          <img src="assets/Group 2.1.png" alt="Book Illustration" class="background" />
-          <h3>INTERN</h3>
-          <p> Digital Egypt Pioneers Initiative [Front-End Developer]
-            <span class="intern-time">(Jul 2024 - Aug 2024)</span>
-          </p>
+      </div>
+      <div class="frontbackcard">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="assets/Group 1.2.png" alt="Book Illustration" class="background" />
+            <img src="assets/cib.png" alt="CIB" class="card-logo" />
+          </div>
+          <div class="card-back">
+            <img src="assets/Group 2.2.png" alt="Book Illustration" class="background" />
+            <h3>INTERN</h3>
+            <p>Commercial International Bank
+              <span class="intern-time">(Jul 2023 - Sep 2023)</span>
+              <span class="intern-time">(Jul 2024 - Aug 2024)</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="frontbackcard">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="assets/Group 1.3.png" alt="Book Illustration" class="background" />
+            <img src="assets/Banque Misr.png" alt="Banque Misr" class="card-logo" />
+          </div>
+          <div class="card-back">
+            <img src="assets/Group 2.3.png" alt="Book Illustration" class="background" />
+            <h3>INTERN</h3>
+            <p>Banque Misr 
+              <span class="intern-time">(Apr 2024 - Oct 2024)</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="frontbackcard">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/Group 1.2.png" alt="Book Illustration" class="background" />
-          <img src="assets/cib.png" alt="CIB" class="card-logo" />
-        </div>
-        <div class="card-back">
-          <img src="assets/Group 2.2.png" alt="Book Illustration" class="background" />
-          <h3>INTERN</h3>
-          <p>Commercial International Bank
-            <span class="intern-time">(Jul 2023 - Sep 2023)</span>
-            <span class="intern-time">(Jul 2024 - Aug 2024)</span>
-          </p>
+    <div class="frontbackcards-row">
+      <div class="frontbackcard">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="assets/Group 1.4.png" alt="Book Illustration" class="background" />
+            <img src="assets/zewail.png" alt="Zewail" class="card-logo" />
+          </div>
+          <div class="card-back">
+            <img src="assets/Group 2.4.png" alt="Book Illustration" class="background" />
+            <h3>INTERN</h3>
+            <p>Zewail University of Science & Technology
+              <span class="intern-time">(Aug 2023 - Apr 2024)</span>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="frontbackcard">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/Group 1.3.png" alt="Book Illustration" class="background" />
-          <img src="assets/Banque Misr.png" alt="Banque Misr" class="card-logo" />
+      <div class="frontbackcard">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="assets/Group 1.5.png" alt="Book Illustration" class="background" />
+            <img src="assets/Emirates NBD.png" alt="Emirates NBD" class="card-logo" />
+          </div>
+          <div class="card-back">
+            <img src="assets/Group 2.5.png" alt="Book Illustration" class="background" />
+            <h3>INTERN</h3>
+            <p>Emirates NBD Bank 
+              <span class="intern-time">(Sep 2023 - Oct 2023)</span>
+            </p>
+          </div>
         </div>
-        <div class="card-back">
-          <img src="assets/Group 2.3.png" alt="Book Illustration" class="background" />
-          <h3>INTERN</h3>
-          <p>Banque Misr 
-            <span class="intern-time">(Apr 2024 - Oct 2024)</span>
-          </p>
+      </div>
+      <div class="frontbackcard">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="assets/Group 1.6.png" alt="Book Illustration" class="background" />
+            <img src="assets/tasaheel.png" alt="Tasaheel" class="card-logo" />
+          </div>
+          <div class="card-back">
+            <img src="assets/Group 2.6.png" alt="Book Illustration" class="background" />
+            <h3>INTERN</h3>
+            <p>Tasaheel Company
+              <span class="intern-time">(Jul 2022 - Aug 2022)</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="frontbackcards-row">
-    <div class="frontbackcard">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/Group 1.4.png" alt="Book Illustration" class="background" />
-          <img src="assets/zewail.png" alt="Zewail" class="card-logo" />
-        </div>
-        <div class="card-back">
-          <img src="assets/Group 2.4.png" alt="Book Illustration" class="background" />
-          <h3>INTERN</h3>
-          <p>Zewail University of Science & Technology
-            <span class="intern-time">(Aug 2023 - Apr 2024)</span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="frontbackcard">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/Group 1.5.png" alt="Book Illustration" class="background" />
-          <img src="assets/Emirates NBD.png" alt="Emirates NBD" class="card-logo" />
-        </div>
-        <div class="card-back">
-          <img src="assets/Group 2.5.png" alt="Book Illustration" class="background" />
-          <h3>INTERN</h3>
-          <p>Emirates NBD Bank 
-            <span class="intern-time">(Sep 2023 - Oct 2023)</span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="frontbackcard">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/Group 1.6.png" alt="Book Illustration" class="background" />
-          <img src="assets/tasaheel.png" alt="Tasaheel" class="card-logo" />
-        </div>
-        <div class="card-back">
-          <img src="assets/Group 2.6.png" alt="Book Illustration" class="background" />
-          <h3>INTERN</h3>
-          <p>Tasaheel Company
-            <span class="intern-time">(Jul 2022 - Aug 2022)</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
   <!-- Swiper Card Slider -->
@@ -345,6 +316,40 @@ DRESSCODE is a stylish shop for clothes, makeup, and accessories, with easy navi
     <span>Swipe left or right<br>to explore all my skills!</span>
   </div>
 
+    <div class="letter-image bg-danger">
+    <div class="animated-mail">
+      <div class="back-fold"></div>
+      <div class="letter">
+        <div class="letter-border"></div>
+        <div class="letter-title">
+          <h3><span class="main-message">You've seen what's in my bag now let's talk</span></h3>
+          <div class="envelope-icons">
+            <!-- LinkedIn Icon -->
+            <a href="https://www.linkedin.com/in/maria-emil-956a93219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="icon-link">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="10" fill="#83562D"/>
+                <path d="M16 20h4v12h-4V20zm2-6a2 2 0 110 4 2 2 0 010-4zm5 6h3.84v1.64h.056c.534-1.012 1.84-2.024 3.784-2.024 4.05 0 4.8 2.664 4.8 6.124V32h-4v-5.6c0-1.336-.024-3.06-1.86-3.06-1.86 0-2.142 1.454-2.142 2.954V32h-4V20z" fill="#FBF2E9"/>
+              </svg>
+              <span class="icon-label">Maria Emil</span>
+            </a>
+            <!-- Gmail Icon -->
+            <a href="mailto:mariaemil4t2@gmail.com" class="icon-link">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="10" fill="#FBF2E9"/>
+                <path d="M10 16v16A4 4 0 0014 36h20a4 4 0 004-4V16a4 4 0 00-4-4H14a4 4 0 00-4 4zm4 0l10 8 10-8v16H14V16z" fill="#B87A41"/>
+              </svg>
+              <span class="icon-label">mariaemil4t2@gmail.com</span>
+            </a>
+          </div>
+        </div>
+        <div class="letter-context"></div>
+      </div>
+      <div class="top-fold"></div>
+      <div class="body"></div>
+      <div class="left-fold"></div>
+    </div>
+    <!-- <div class="shadow"></div> -->
+  </div>
 
   <script type="module" src="main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

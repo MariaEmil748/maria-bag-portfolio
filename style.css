@@ -596,7 +596,7 @@ body {
 .scroll-container {
   position: relative;
   width:100%;
-  top: 450px; /* Try 600px or even less for a much smaller gap */
+  top: 525px; 
 }
 
 .bag-stack {
@@ -649,7 +649,7 @@ body {
 }
 .cv-section {
   position: relative;
-  top: 60px; 
+  /* top: 60px;  */
   left: 70%;
   transform: translateX(-50%);
   text-align: center;
@@ -685,9 +685,10 @@ body {
 
 .projects-section {
   position: relative;
-  width: 100%;
-  top: 80px; /* Adjust as needed */
-  right: 14%;
+  width: 75%;
+  height: 100vh;
+  /* top: 80px; Adjust as needed */
+  /* right: 14%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -698,8 +699,8 @@ body {
   margin-bottom: 3px;
   font-size: 2.2rem;
   position: relative;
-  left: 650px;   /* Move right */
-  top: 360px;    /* Move down */
+  left: 61%;  /* Move right */
+  top: 10%;    /* Move down */
 }
 
 .projects-grid {
@@ -1082,11 +1083,12 @@ body {
 }
 
 .frontbackcards-wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 24px;
-  margin-top: 15px;
+  /* margin-top: 15px; */
   margin-right: 60px;
   z-index: -1;
 }
@@ -1127,7 +1129,7 @@ body {
   font-size: 2.2rem;
   position: relative;
   right: 925px;   /* Move right, adjust as needed */
-  top: 385px;   
+  top: 5%;   
 }
 /* Swiper Card Styles */
 .swiper {

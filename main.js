@@ -48,6 +48,24 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }, 0);
 
+  
+  tl.fromTo('.project-card', {
+    x: 450,
+    opacity: 0,
+    scale:0.4,
+    zIndex:0,
+    position: 'absolute',
+  },{
+    x:0,
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    zIndex:0,
+    ease: 'power2.inOut',
+    position:'relative',
+    duration: 0.2,
+  },0.5)
+  
   // 2. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: leftEdge,
@@ -168,4 +186,3 @@ window.addEventListener('DOMContentLoaded', () => {
     grabCursor: true,
   });
 });
-

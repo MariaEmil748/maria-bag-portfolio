@@ -774,7 +774,7 @@ body {
 
 
 .project-content {
-  background-color: #b87b41b1; 
+  background-color: #C79567; 
   border-radius:30px ;
   padding: 10px 10px 8px 10px; /* Less top padding */
   flex: 1;
@@ -1341,9 +1341,9 @@ body {
     /* top: auto; */
     width: var(--cards-container-size);
     height: var(--cards-container-size);
-    padding: var(--cards-container-padding); 
-    background-color: #b87b41b1 !important;
-   
+    padding: var(--cards-container-padding);  
+    background: radial-gradient(circle at 50% 50%, #D0A37B 40%, #af6e31 100%) !important;
+    color: #915400;
 
     @media (width > 600px){
        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
@@ -1370,7 +1370,7 @@ body {
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease-in-out var(--duration);
     list-style: none;
-    top: 12%;
+    top: 17%;
   }
 
   .cards li {
@@ -1430,6 +1430,7 @@ body {
   }
 
   .cards > li > h2,
+  .cards > li > img,
   .cards > li > p{
     position: absolute;
     left: 50%;

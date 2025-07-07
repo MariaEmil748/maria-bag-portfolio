@@ -600,26 +600,17 @@ body {
 }
 
 .bag-stack {
-  position: relative;
-  z-index: 9999; /* Very high value to ensure it's on top */
-}
-.bag-layer,
-.bag-layer-1,
-.bag-layer-envelope,
-.bag-layer-2 {
-  z-index: 9999 !important; /* Make sure all bag layers are above */
-  position: absolute;
-}
-.bag-stack {
   width: 340px;
   height: 420px;
+  position: relative;
 }
 .bag-layer {
   width: 340px;
   height: 420px;
+  position: absolute;
 }
 .bag-layer-1 {
-  z-index: 10000 !important;
+  z-index: 1 !important;
   position: absolute;
 }
 .bag-layer-envelope {
@@ -686,6 +677,7 @@ body {
 .projects-section {
   position: relative;
   width: 100%;
+  height: 100vh; /* Full viewport height */
   top: 80px; /* Adjust as needed */
   right: 14%;
   display: flex;
@@ -699,7 +691,7 @@ body {
   font-size: 2.2rem;
   position: relative;
   left: 650px;   /* Move right */
-  top: 360px;    /* Move down */
+  top: 10%;    /* move down */
 }
 
 .projects-grid {
@@ -1024,12 +1016,12 @@ body {
   background-color: #F8ECD6;
   display: flex;
   align-items: center;
-  border: 8px solid #925300;
   border-radius: 15px;
   justify-content: center;
   font-size: 30px;
   transform: rotateY(0deg);
- 
+  box-shadow: 10 80px 32px rgba(61, 90, 128, 0.18), 0 2px 8px rgba(131, 86, 45, 0.13);
+  z-index: 2;
 }
 
 .card-front img:not(.card-logo) {
@@ -1038,8 +1030,8 @@ body {
 
 .card-logo {
   position: absolute;
-  top: -15px;
-  left: 55px;
+  top: -10px;
+  left: 120px;
   width: 120px;
   height: 150px;
   object-fit: contain;
@@ -1055,21 +1047,22 @@ body {
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  border: 10px solid #925300;
   border-radius: 15px;
   font-size: 24px;
   transform: rotateY(180deg);
 }
 
 .card-back h3 {
+  position: relative;
   font-family: 'Mynerve', cursive;
-  margin-top: 18px;
+  margin-top: 22px;
   margin-bottom: 8px;
   font-size: 1.1rem;
   letter-spacing: 1px;
   color: #fff;
   width: 100%;
   text-align: center;
+  top: 4%;
 }
 
 .card-back p {
@@ -1104,13 +1097,14 @@ body {
 
 .background{
   position: absolute;
-  top: -30;
+  top: -10;
   left: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
   z-index: -1; /* Ensure it's behind all other content */
+  border-radius: 15px;
 }
 
 .intern-time {

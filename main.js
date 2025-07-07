@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
       trigger: '.scroll-container',
       start: 'top 10%',
       end: '+=3200',
+      // toggleActions: 'play none none reverse',
       scrub: 1,
       markers: false,
     },
@@ -37,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // 1. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: rightEdge,
-    y: 400,
+    y: 480,
     rotate: 0, // Straight at right edge
     ease: 'power2.inOut',
     duration: 1,
@@ -48,6 +49,24 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }, 0);
 
+  
+  tl.fromTo('.project-card', {
+    x: 450,
+    opacity: 0,
+    scale:0.4,
+    zIndex:0,
+    position: 'absolute',
+  },{
+    x:0,
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    zIndex:0,
+    ease: 'power2.inOut',
+    position:'relative',
+    duration: 0.2,
+  },0.5)
+  
   // 2. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: leftEdge,
@@ -163,4 +182,3 @@ window.addEventListener('DOMContentLoaded', () => {
     grabCursor: true,
   });
 });
-

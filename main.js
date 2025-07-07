@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
       start: 'top 10%',
       end:'+=2000 50%', // Adjusted to ensure the animation plays through
       scrub: true,
-      markers: true,
+      // markers: true,
     },
   });
 
@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', () => {
     ease: 'power2.inOut',
     position:'relative',
     duration: 0.2,
-  },0.5)
+  },1.5)
   
   // 2. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', () => {
     y: 1150,
     rotate: 0, // Straight at left edge
     ease: 'power2.inOut',
-    duration: 1.5,
+    duration: 2,
     onUpdate: function() {
       const progress = this.progress();
       const angle = Math.sin(progress * Math.PI) * 18; // 18deg max (right)
@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
     y: 1700,
     rotate: 0,
     ease: 'power2.inOut',
-    duration: 1.5,
+    duration: 2,
     onUpdate: function() {
       const progress = this.progress();
       const angle = -Math.sin(progress * Math.PI) * 12;
@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', () => {
     y: 2200,
     rotate: 0,
     ease: 'power2.inOut',
-    duration: 1.5,
+    duration: 1,
     onUpdate: function() {
       const progress = this.progress();
       const angle = Math.sin(progress * Math.PI) * 8;
@@ -109,40 +109,47 @@ window.addEventListener('DOMContentLoaded', () => {
   }, 9);
 
 
-  // Envelope and letter animation (keep as is)
-  tl.fromTo('#bagEnvelope', {
-    y: 60,
-  }, {
-    y: -120,
-    duration: 1,
-    ease: 'power2.inOut',
-  }, 9);
 
-  // tl.to('#bagEnvelope', {
-  //   x: 350,
-  //   duration: 1,
-  //   ease: 'power2.inOut',
-  // }, 3.5);
+  const tlBag = gsap.timeline({
+    scrollTrigger:{
+      trigger: '#techSkillsSection',
+      start: '50% 50%',
+      end: '+=500 50%', 
+      scrub: true,
+      markers: false 
+    }
+  })
 
-  // tl.to('#bagEnvelope', {
-  //   y: 100,
-  //   rotate: 0,
-  //   scale: 2.5,
-  //   duration: 1,
-  //   ease: 'power2.inOut',
-  // }, 5);
+  tlBag.to('#bagEnvelope', 
+    {
+      y: -10,
+      x: 755,
+      rotate: 0,
+      scale: 3.33,
+      duration: 0.5,
+      ease: 'power2.inOut',
+      zIndex: -1,
+    },0);
 
-  // tl.to('#bagEnvelope', {
-  //   opacity: 0,
-  // }, 5.5);
+    tlBag.to('#bagEnvelope',{
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.inOut',
+    }, 0.7);
+    
+    tlBag.fromTo('.letter-image', 
+      {
+        display: 'none',
+        opacity: 0,
+      },
+      {
+        display: 'inline-flex',
+        opacity: 1,
+        duration: 0.5,
+        zIndex: 10,
+        ease: 'power2.inOut',
+      },0.5)
 
-  // tl.from('.letter-image', {
-  //   opacity: 0,
-  // }, 4);
-
-  // tl.to('.letter-image', {
-  //   opacity: 1,
-  // }, 8.5);
 
 
   gsap.utils.toArray('.animated-left').forEach(el => {
@@ -150,13 +157,13 @@ window.addEventListener('DOMContentLoaded', () => {
       scrollTrigger: {
         trigger: el,
         start: 'top 80%',
-        end: 'top 50%', // Adjusted to ensure the animation plays through
+        end: '+=200', // Adjusted to ensure the animation plays through
         scrub: true,
         // toggleActions: 'play reverse play reverse', // Enable reverse animation
         markers: false // Enable markers for debugging
       },
       opacity: 0,
-       x: -80,         // Animate from the left
+      x: -80,         // Animate from the left
       rotate: -8, 
       duration: 0.5,
       ease: 'power2.out'
@@ -167,15 +174,16 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(el, {
       scrollTrigger: {
         trigger: el,
-        start: 'top 80%',
+        start: 'top 30%',
+        end:'+=200',
         scrub: true,
+        markers: false, // Enable markers for debugging
         // toggleActions: 'play reverse play reverse' // Enable reverse animation
       },
       opacity: 0,
-       x: 80,         // Animate from the left
+      x: 80,         // Animate from the left
       rotate: -8,
-      display: 'none',
-      duration: 1,
+      duration: 0.5,
       ease: 'power2.out'
     });
   });

@@ -68,9 +68,8 @@ body {
 }
 
 .letter-image {
-	/* position: absolute;
-	top: 101%;
-  right: 2%; */
+  position: relative;
+	top: 5%;
   opacity: 1;
 	width: 600px;
 	height: 200px;
@@ -609,6 +608,7 @@ body {
   width: 340px;
   height: 420px;
   position: relative;
+  z-index: 5;
 }
 .bag-layer {
   width: 340px;
@@ -623,7 +623,7 @@ body {
   position: absolute;
   width: 180px;
   height: 60px;
-  top: 32%;
+  top: 40%;
   left: 32%;
   z-index: 2;
   rotate: 90deg;
@@ -689,7 +689,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .projects-title {
@@ -1119,15 +1119,16 @@ body {
     --info-offset-y: 30px;
 
     position: relative;
-    margin: 10rem 0 0 7rem; /* Move down and right with margin */
-    right: auto;
-    bottom: auto;
-    left: 32%;
-    top: auto;
+    /* margin: 10rem 0 0 7rem; Move down and right with margin */
+    right: 2%;
+    /* bottom: auto; */
+    /* left: 32%; */
+    top: 17%;
     width: var(--cards-container-size);
     height: var(--cards-container-size);
     padding: var(--cards-container-padding); 
     background-color: #b87b41b1 !important;
+    z-index: 0 !important;
    
 
     @media (width > 600px){
@@ -1333,11 +1334,11 @@ body {
     --info-offset-y: 30px;
 
     position: relative;
-    margin: 10rem 0 0 7rem; /* Move down and right with margin */
-    right: auto;
-    bottom: auto;
-    left: 32%;
-    top: auto;
+    /* margin: 10rem 0 0 7rem; Move down and right with margin */
+    /* right: auto; */
+    /* bottom: auto; */
+    /* left: 32%; */
+    /* top: auto; */
     width: var(--cards-container-size);
     height: var(--cards-container-size);
     padding: var(--cards-container-padding); 

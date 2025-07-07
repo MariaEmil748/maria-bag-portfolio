@@ -30,6 +30,17 @@ window.addEventListener('DOMContentLoaded', () => {
     },
   });
 
+
+  // Fade in first vector background
+  tl.to('#vectorBg1', {
+    x:150,
+    y: 100,
+    opacity: 1,
+    scale: 1.7, 
+    duration: 1,
+    ease: 'power1.inOut'
+  }, 0.8);
+
   const screenWidth = window.innerWidth;
   const leftEdge = 0;
   const rightEdge = screenWidth - 420; // Adjust 300 to bag width if needed
@@ -80,6 +91,23 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }, 3);
 
+  // Fade out first vector background and fade in second
+  tl.to('#vectorBg1', {
+    opacity: 0,
+    scale: 0.5,
+    duration: 0.5,
+    ease: 'power1.inOut'
+  }, 2.5);
+
+  tl.to('#vectorBg2', {
+    opacity: 1,
+    x:-20,
+    y:100,
+    scale: 1.5,
+    duration: 1,
+    ease: 'power1.inOut'
+  }, 3.8);
+
   // 3. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: rightEdge,
@@ -94,6 +122,23 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }, 6);
 
+  // Fade out second vector background and fade in third
+  tl.to('#vectorBg2', {
+    opacity: 0,
+    scale: 0.5,
+    duration: 0.5,
+    ease: 'power1.inOut'
+  }, 5.5);
+
+  tl.to('#vectorBg3', {
+    opacity: 1,
+    x: 150,
+    y:90,
+    scale: 1.5,
+    duration: 1,
+    ease: 'power1.inOut'
+  }, 7);
+
   // 4. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: leftEdge,
@@ -107,6 +152,23 @@ window.addEventListener('DOMContentLoaded', () => {
       gsap.set('.bag-stack', { rotate: angle });
     }
   }, 9);
+
+  // Fade out third vector background and fade in fourth
+  tl.to('#vectorBg3', {
+    opacity: 0,
+    scale: 0.5,
+    duration: 0.5,
+    ease: 'power1.inOut'
+  }, 8.5);
+
+  tl.to('#vectorBg4', {
+    opacity: 1,
+    y: 100,
+    x: -20,
+    scale: 1.5,
+    duration: 0.5,
+    ease: 'power1.inOut'
+  }, 9.8);
 
 
 
@@ -123,7 +185,7 @@ window.addEventListener('DOMContentLoaded', () => {
   tlBag.to('#bagEnvelope', 
     {
       y: -10,
-      x: 755,
+      x: 690,
       rotate: 0,
       scale: 3.33,
       duration: 0.5,

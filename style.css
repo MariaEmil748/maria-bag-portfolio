@@ -70,6 +70,7 @@ body {
 .letter-image {
   position: relative;
 	top: 5%;
+  right: 5%;
   opacity: 1;
 	width: 600px;
 	height: 200px;
@@ -1156,7 +1157,7 @@ body {
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease-in-out var(--duration);
     list-style: none;
-    top: 12%;
+    top: 17%;
   }
 
   .cards li {
@@ -1216,6 +1217,7 @@ body {
   }
 
   .cards > li > h2,
+  .cards > li > img,
   .cards > li > p{
     position: absolute;
     left: 50%;
@@ -1496,4 +1498,38 @@ body {
 
 .tech-skills{
   width: 75%;
+}
+
+.vector-background {
+  position: absolute;
+  width: 200px;  /* Adjust size as needed */
+  height: 220px;  /* Adjust size as needed */
+  background-image: url('assets/vectorback.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  scale: 0;
+  z-index: 1;  /* Below the bag (which has z-index: 5) */
+  pointer-events: none;
+  /* transition: opacity 0.3s ease; */
+}
+
+#vectorBg1 {
+  top: 525px;
+  right: 20%;
+}
+
+#vectorBg2 {
+  top: 1100px;
+  left: 10%;
+}
+
+#vectorBg3 {
+  top: 1650px;
+  right: 20%;
+}
+
+#vectorBg4 {
+  top: 2150px;
+  left: 10%;
 }

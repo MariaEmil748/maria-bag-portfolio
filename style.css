@@ -1087,8 +1087,8 @@ body {
 }
 /* Swiper Card Styles */
 .swiper {
-  width: 500px;   /* Increased width */
-  height: 320px;  /* Increased height */
+  width: 500px;   
+  height: 320px;  
   margin: 60px auto;
 }
 
@@ -1226,11 +1226,6 @@ body {
   margin-top: 2px;
 }
 
-/* Custom hover effect for the three images in each project card:
-   - Left image goes left and rotates a bit
-   - Middle image goes up
-   - Right image goes right and rotates a bit
-*/
 .project-card:hover .project-card-images.overlap-images img:nth-child(1) {
   transform: translateX(-38px) scale(1.07) rotate(-12deg) translateY(0);
   z-index: 2;

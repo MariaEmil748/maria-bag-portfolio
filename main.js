@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
       start: 'top 10%',
       end:'+=2000 50%', // Adjusted to ensure the animation plays through
       scrub: true,
-      // markers: true,
+      markers: true,
     },
   });
 
@@ -60,12 +60,12 @@ window.addEventListener('DOMContentLoaded', () => {
       const angle = Math.sin(progress * Math.PI) * 18; // 18deg max (right)
       gsap.set('.bag-stack', { rotate: angle });
     }
-  }, 2.5);
+  }, 3);
 
   // 3. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: rightEdge,
-    y: 1650,
+    y: 1700,
     rotate: 0,
     ease: 'power2.inOut',
     duration: 1.5,
@@ -74,12 +74,12 @@ window.addEventListener('DOMContentLoaded', () => {
       const angle = -Math.sin(progress * Math.PI) * 12;
       gsap.set('.bag-stack', { rotate: angle });
     }
-  }, 5);
+  }, 6);
 
   // 4. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: leftEdge,
-    y: 2100,
+    y: 2200,
     rotate: 0,
     ease: 'power2.inOut',
     duration: 1.5,
@@ -88,17 +88,17 @@ window.addEventListener('DOMContentLoaded', () => {
       const angle = Math.sin(progress * Math.PI) * 8;
       gsap.set('.bag-stack', { rotate: angle });
     }
-  }, 7.5);
+  }, 9);
 
 
   // Envelope and letter animation (keep as is)
-  // tl.fromTo('#bagEnvelope', {
-  //   y: 60,
-  // }, {
-  //   y: -120,
-  //   duration: 1,
-  //   ease: 'power2.inOut',
-  // }, 3);
+  tl.fromTo('#bagEnvelope', {
+    y: 60,
+  }, {
+    y: -120,
+    duration: 1,
+    ease: 'power2.inOut',
+  }, 9);
 
   // tl.to('#bagEnvelope', {
   //   x: 350,
@@ -135,7 +135,7 @@ window.addEventListener('DOMContentLoaded', () => {
         end: 'top 50%', // Adjusted to ensure the animation plays through
         scrub: true,
         // toggleActions: 'play reverse play reverse', // Enable reverse animation
-        markers: true // Enable markers for debugging
+        markers: false // Enable markers for debugging
       },
       opacity: 0,
        x: -80,         // Animate from the left
@@ -150,11 +150,13 @@ window.addEventListener('DOMContentLoaded', () => {
       scrollTrigger: {
         trigger: el,
         start: 'top 80%',
-        toggleActions: 'play reverse play reverse' // Enable reverse animation
+        scrub: true,
+        // toggleActions: 'play reverse play reverse' // Enable reverse animation
       },
       opacity: 0,
        x: 80,         // Animate from the left
-      rotate: -8, 
+      rotate: -8,
+      display: 'none',
       duration: 1,
       ease: 'power2.out'
     });

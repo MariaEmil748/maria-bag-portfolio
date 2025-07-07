@@ -5,6 +5,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden !important;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .main-text-style {
   font-family: 'Mynerve', cursive;
@@ -64,9 +66,9 @@ body {
 }
 
 .letter-image {
-	position: absolute;
+	/* position: absolute;
 	top: 101%;
-  right: 2%;
+  right: 2%; */
   opacity: 1;
 	width: 600px;
 	height: 200px;
@@ -626,7 +628,7 @@ body {
   position: absolute;
   width: 180px;
   height: 60px;
-  top: 25%;
+  top: 32%;
   left: 32%;
   z-index: 2;
   rotate: 90deg;
@@ -1083,13 +1085,14 @@ body {
 }
 
 .frontbackcards-wrapper {
-  width: 100%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  align-self: flex-end;
   gap: 24px;
   /* margin-top: 15px; */
-  margin-right: 60px;
+  /* margin-right: 60px; */
   z-index: -1;
 }
 
@@ -1129,7 +1132,7 @@ body {
   font-size: 2.2rem;
   position: relative;
   right: 925px;   /* Move right, adjust as needed */
-  top: 5%;   
+  top: 10%;   
 }
 /* Swiper Card Styles */
 .swiper {
@@ -1228,8 +1231,8 @@ body {
   color: #000000;
   white-space: nowrap;
   position: relative;
-  left: 80px; /* Move the title to the right */
-  top: 100px;
+  /* left: 80px; Move the title to the right */
+  /* top: 100px; */
 }
 
 .swiper {
@@ -1241,9 +1244,9 @@ body {
 /* Add to your style.css */
 .swiper-instruction {
   position: relative;
-  top: -200px;
-  left: 80px;
-  margin-top: 8px;            /* Less space above, moves it up */
+  /* top: -200px;
+  left: 80px; */
+  /* margin-top: 8px; */
   margin-left: 0;
   display: flex;
   align-items: flex-start;     /* Align icon and text to the top */
@@ -1272,3 +1275,6 @@ body {
   margin-top: 2px;
 }
 
+.tech-skills{
+  width: 75%;
+}

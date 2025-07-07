@@ -7,6 +7,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden !important;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .main-text-style {
   font-family: 'Mynerve', cursive;
@@ -66,9 +68,9 @@ body {
 }
 
 .letter-image {
-	position: absolute;
-	top: 101%;
-  right: 2%;
+  position: relative;
+	top: 5%;
+  right: 5%;
   opacity: 1;
 	width: 600px;
 	height: 200px;
@@ -600,13 +602,14 @@ body {
 .scroll-container {
   position: relative;
   width:100%;
-  top: 450px; /* Try 600px or even less for a much smaller gap */
+  top: 525px; 
 }
 
 .bag-stack {
   width: 340px;
   height: 420px;
   position: relative;
+  z-index: 5;
 }
 .bag-layer {
   width: 340px;
@@ -621,7 +624,7 @@ body {
   position: absolute;
   width: 180px;
   height: 60px;
-  top: 25%;
+  top: 40%;
   left: 32%;
   z-index: 2;
   rotate: 90deg;
@@ -644,7 +647,7 @@ body {
 }
 .cv-section {
   position: relative;
-  top: 60px; 
+  /* top: 60px;  */
   left: 70%;
   transform: translateX(-50%);
   text-align: center;
@@ -680,22 +683,22 @@ body {
 
 .projects-section {
   position: relative;
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  top: 80px; /* Adjust as needed */
-  right: 14%;
+  width: 75%;
+  height: 100vh;
+  /* top: 80px; Adjust as needed */
+  /* right: 14%; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .projects-title {
   margin-bottom: 3px;
   font-size: 2.2rem;
   position: relative;
-  left: 650px;   /* Move right */
-  top: 10%;    /* move down */
+  left: 61%;  /* Move right */
+  top: 10%;    /* Move down */
 }
 
 .projects-grid {
@@ -1018,8 +1021,8 @@ body {
   color: #000000;
   white-space: nowrap;
   position: relative;
-  left: 80px; /* Move the title to the right */
-  top: 100px;
+  /* left: 80px; Move the title to the right */
+  /* top: 100px; */
 }
 
 .swiper {
@@ -1031,9 +1034,9 @@ body {
 /* Add to your style.css */
 .swiper-instruction {
   position: relative;
-  top: -200px;
-  left: 80px;
-  margin-top: 8px;            /* Less space above, moves it up */
+  /* top: -200px;
+  left: 80px; */
+  /* margin-top: 8px; */
   margin-left: 0;
   display: flex;
   align-items: flex-start;     /* Align icon and text to the top */
@@ -1117,11 +1120,227 @@ body {
     --info-offset-y: 30px;
 
     position: relative;
-    margin: 10rem 0 0 7rem; /* Move down and right with margin */
-    right: auto;
-    bottom: auto;
-    left: 32%;
-    top: auto;
+    /* margin: 10rem 0 0 7rem; Move down and right with margin */
+    right: 2%;
+    /* bottom: auto; */
+    /* left: 32%; */
+    top: 17%;
+    width: var(--cards-container-size);
+    height: var(--cards-container-size);
+    padding: var(--cards-container-padding); 
+    background-color: #b87b41b1 !important;
+    z-index: 0 !important;
+   
+
+    @media (width > 600px){
+       clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    }
+    @media (min-width: 800px) {
+        --radius: 30vw;
+        --label-size: 40px;
+        --label-dot-size: 15px;
+        --label-line-h-current: 4rem;
+        --title-top: 4rem;
+        --info-top: 8rem;
+      }
+    @media (min-width: 1200px) {
+        --label-size: 50px;
+        --border-color: var(--label-color);
+    }
+    
+}
+  .cards {
+    position: absolute;
+    inset: var(--cards-container-padding);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease-in-out var(--duration);
+    list-style: none;
+    top: 17%;
+  }
+
+  .cards li {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    transform-origin:center;
+    display: grid;
+    place-content: center;
+    transform: rotate(calc(var(--i) * 360deg / var(--items)));
+    pointer-events: none;
+  }
+
+  .cards li > label {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transform: translateY(var(--label-offset));
+    width: var(--label-size);
+    height: var(--label-size);
+    cursor: pointer;
+    pointer-events: initial;
+    text-align: center;
+    color: var(--label-color);
+    font-size: clamp(.8rem, 2.5vw + .04rem,1rem);
+    transition: var(--duration) ease-in-out;
+
+  }
+  .cards li > label::before{
+      content: '';
+      position: absolute;
+      top: var(--cards-container-padding);
+      left: 50%;
+      translate: -50% 0;
+      width: var(--label-dot-size);
+      height: var(--label-dot-size);
+      aspect-ratio: 50%;
+      border-radius: 50%;
+      background-color: var(--label-color);
+      transition: background-color var(--duration) ease-in-out;
+  }
+
+  .cards li > label::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    translate: -50% 5px;
+    width: 2px;
+    height: var(--label-line-h);
+    background-color: #905300;
+    transition: height 300ms ease-in-out var(--label-line-delay,0ms);
+  }
+  .cards li > label:hover{
+    --label-color: var(--label-color-hover);
+  }
+
+  .cards > li > h2,
+  .cards > li > img,
+  .cards > li > p{
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0);
+    transform-origin: center;
+  }
+  .cards > li > h2{
+    top: var(--title-top);
+    opacity: var(--title-opacity,0);
+    translate: 0 var(--title-offset-y);
+    transition: var(--duration) ease-in-out var(--title-delay,0ms);
+  }
+  .cards > li > p{
+    top: var(--info-top);
+    margin: 0 auto;
+    width: var(--info-width);
+    z-index: 2;
+    font-size: clamp(.8rem, 2.5vw + 0.05rem, .9rem);
+    text-align: left;
+    text-wrap: pretty;
+    opacity: var(--info-opacity,0);
+    text-align: center;
+    /*translate: 0 var( --info-offset-y);*/
+    transition: var(--duration) ease-in-out var(--info-delay,0ms);
+  }
+
+  /* update custom properties for checked item */
+  li:has(input:checked){
+      --label-opacity: 1;
+      --label-color: var(--label-color-hover);
+      --label-line-h: var(--label-line-h-current);
+      --label-line-delay: calc(var(--duration) * 2);
+
+      --title-opacity: 1;
+      --title-offset-y: 0;
+      --title-delay: calc(var(--duration) * 3);
+
+      --info-opacity: 1;
+      --info-offset-y: 0;
+      --info-delay: calc(var(--duration) * 4);
+      /*outline: 1px dashed red;*/
+  }
+
+  /* rotate container based on checked radio */
+  .cards:has(input:checked) {
+    transform: rotate(calc(var(--base-rotation) - (var(--index) * var(--full-circle) / var(--items))));
+  }
+  /*
+  this would be so much simpler if we could use counter values as custom property values
+  */
+  .cards:has(li:nth-child(1)>input:checked) { --index: 0; }
+  .cards:has(li:nth-child(2)>input:checked) { --index: 1; }
+  .cards:has(li:nth-child(3)>input:checked) { --index: 2; }
+  .cards:has(li:nth-child(4)>input:checked) { --index: 3; }
+  .cards:has(li:nth-child(5)>input:checked) { --index: 4; }
+  .cards:has(li:nth-child(6)>input:checked) { --index: 5; }
+  .cards:has(li:nth-child(7)>input:checked) { --index: 6; }
+  .cards:has(li:nth-child(8)>input:checked) { --index: 7; }
+  .cards:has(li:nth-child(9)>input:checked) { --index: 8; }
+  .cards:has(li:nth-child(10)>input:checked) { --index: 9; }
+}
+
+.project-card:hover .project-card-images.overlap-images img:nth-child(1) {
+  transform: translateX(-38px) scale(1.07) rotate(-12deg) translateY(0);
+  z-index: 2;
+}
+.project-card:hover .project-card-images.overlap-images img:nth-child(2) {
+  transform: translateY(-38px) scale(1.13);
+  z-index: 3;
+}
+.project-card:hover .project-card-images.overlap-images img:nth-child(3) {
+  transform: translateX(38px) scale(1.07) rotate(12deg) translateY(0);
+  z-index: 2;
+}
+
+/* Timeline effect for cards-container */
+
+
+@layer demo {
+  input[type="radio"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+  }
+  .cards-container {
+    --base-rotation: 0deg;
+    --full-circle: 360deg;
+    --radius: 20vw;
+    --duration: 200ms;
+
+    --cards-container-size: calc(var(--radius) * 2);
+    --cards-container-padding: 2rem;
+
+    --border-color: transparent;
+
+    --label-offset: calc(var(--radius) * -1 - 1rem);
+    --label-size: 30px;
+    --label-color: #666;
+    --label-color-hover: #905300;
+    --label-line-h: 0;
+    --label-line-h-current: 2rem;
+    --label-dot-size: 10px;
+
+    --title-top: 1.5rem;
+    --title-offset-y: 30px;
+
+    --info-top: 5rem;
+    --info-width: min(70%, 500px);
+    --info-offset-y: 30px;
+
+    position: relative;
+    /* margin: 10rem 0 0 7rem; Move down and right with margin */
+    /* right: auto; */
+    /* bottom: auto; */
+    /* left: 32%; */
+    /* top: auto; */
     width: var(--cards-container-size);
     height: var(--cards-container-size);
     padding: var(--cards-container-padding);  
@@ -1277,3 +1496,40 @@ body {
   .cards:has(li:nth-child(10)>input:checked) { --index: 9; }
 }
 
+.tech-skills{
+  width: 75%;
+}
+
+.vector-background {
+  position: absolute;
+  width: 200px;  /* Adjust size as needed */
+  height: 220px;  /* Adjust size as needed */
+  background-image: url('assets/vectorback.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  scale: 0;
+  z-index: 1;  /* Below the bag (which has z-index: 5) */
+  pointer-events: none;
+  /* transition: opacity 0.3s ease; */
+}
+
+#vectorBg1 {
+  top: 525px;
+  right: 20%;
+}
+
+#vectorBg2 {
+  top: 1100px;
+  left: 10%;
+}
+
+#vectorBg3 {
+  top: 1650px;
+  right: 20%;
+}
+
+#vectorBg4 {
+  top: 2150px;
+  left: 10%;
+}

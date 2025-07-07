@@ -1,3 +1,5 @@
+@import "https://codepen.io/cbolson/pen/rNEdgKo.css" layer(template);
+@layer template, demo;
 body {
   margin: 0;
   padding: 0;
@@ -437,7 +439,7 @@ body {
   top: 15px;
   right: 70px;
   background-color: #231f20;
-  transition: top 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: top 0.25s cubic-bezier(0.)
 }
 .coffee-medium__arm::before {
   content: "";
@@ -448,6 +450,8 @@ body {
   left: -35px;
   background-color: #9e9495;
   z-index: 1;
+  transition: top 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .coffee-medium__cup {
   width: 80px;
@@ -862,40 +866,6 @@ body {
 }
 
 
-
-.project-card .wave {
-  position: absolute;
-  width: 540px;
-  height: 700px;
-  opacity: 0.33;
-  left: 0;
-  /* Move the waves further down */
-  top: 80px;      /* Was 0; increase this value to move waves lower */
-  margin-left: -50%;
-  margin-top: -70%;
-  background:  #B87A41 60%;
-  border-radius: 40%;
-  animation: wave 55s infinite linear;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.project-card .wave:nth-child(1) {
-  
-  opacity: 0.33;
-  top: 300px;
-}
-
-.project-card .wave:nth-child(2) {
-  top: 370px;           /* Was 250px; increase to move lower */
-  animation-duration: 10s;
-}
-
-.project-card .wave:nth-child(3) {
-  top: 330px;           /* Was 210px; increase to move lower */
-  animation-duration: 75s;
-}
-
 .icon {
   width: 3em;
   margin-top: -1em;
@@ -948,143 +918,9 @@ body {
 }
 
 
-.frontbackcard {
-  width: 160px;
-  height: 110px;
-  perspective: 700px;
-}
 
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.999s;
-}
 
-.frontbackcard:hover .card-inner {
-  transform: rotateY(180deg);
-}
 
-.card-front,
-.card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.card-front {
-  background-color: #F8ECD6;
-  display: flex;
-  align-items: center;
-  border-radius: 15px;
-  justify-content: center;
-  font-size: 30px;
-  transform: rotateY(0deg);
-  box-shadow: 10 80px 32px rgba(61, 90, 128, 0.18), 0 2px 8px rgba(131, 86, 45, 0.13);
-  z-index: 2;
-}
-
-.card-front img:not(.card-logo) {
-  z-index: 1;
-}
-
-.card-logo {
-  position: absolute;
-  top: -10px;
-  left: 120px;
-  width: 120px;
-  height: 150px;
-  object-fit: contain;
-  z-index: 20;
-  border-radius: 12px;
-}
-
-.card-back {
-  background-color: #925300;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  border-radius: 15px;
-  font-size: 24px;
-  transform: rotateY(180deg);
-}
-
-.card-back h3 {
-  position: relative;
-  font-family: 'Mynerve', cursive;
-  margin-top: 22px;
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  color: #fff;
-  width: 100%;
-  text-align: center;
-  top: 4%;
-}
-
-.card-back p {
-  font-size: 0.85rem;
-  color: #fff;
-  margin: 0 12px;
-  text-align: center;
-  font-family: 'Mynerve', cursive;
-  letter-spacing: 0.5px;
-}
-
-.frontbackcards-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 24px;
-  margin-top: 15px;
-  margin-right: 60px;
-  z-index: -1;
-}
-
-.frontbackcards-row {
-  display: flex;
-  gap: 18px;
-}
-
-.frontbackcard {
-  width: 250px;
-  height: 150px;
-  perspective: 700px;
-}
-
-.background{
-  position: absolute;
-  top: -10;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  z-index: -1; /* Ensure it's behind all other content */
-  border-radius: 15px;
-}
-
-.intern-time {
-  display: block;
-  margin-top: 2px;
-  font-size: 0.82em;
-  color: #ffe6b8;
-  font-family: 'Mynerve', cursive;
-  letter-spacing: 0.5px;
-}
-
-.card-book-title {
-  margin-bottom: 3px;
-  font-size: 2.2rem;
-  position: relative;
-  right: 925px;   /* Move right, adjust as needed */
-  top: 385px;   
-}
 /* Swiper Card Styles */
 .swiper {
   width: 500px;   
@@ -1237,5 +1073,206 @@ body {
 .project-card:hover .project-card-images.overlap-images img:nth-child(3) {
   transform: translateX(38px) scale(1.07) rotate(12deg) translateY(0);
   z-index: 2;
+}
+
+/* Timeline effect for cards-container */
+
+
+@layer demo {
+  input[type="radio"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+  }
+  .cards-container {
+    --base-rotation: 0deg;
+    --full-circle: 360deg;
+    --radius: 20vw;
+    --duration: 200ms;
+
+    --cards-container-size: calc(var(--radius) * 2);
+    --cards-container-padding: 2rem;
+
+    --border-color: transparent;
+
+    --label-offset: calc(var(--radius) * -1 - 1rem);
+    --label-size: 30px;
+    --label-color: #666;
+    --label-color-hover: #905300;
+    --label-line-h: 0;
+    --label-line-h-current: 2rem;
+    --label-dot-size: 10px;
+
+    --title-top: 1.5rem;
+    --title-offset-y: 30px;
+
+    --info-top: 5rem;
+    --info-width: min(70%, 500px);
+    --info-offset-y: 30px;
+
+    position: relative;
+    margin: 10rem 0 0 7rem; /* Move down and right with margin */
+    right: auto;
+    bottom: auto;
+    left: 32%;
+    top: auto;
+    width: var(--cards-container-size);
+    height: var(--cards-container-size);
+    padding: var(--cards-container-padding); 
+    background-color: #b87b41b1 !important;
+   
+
+    @media (width > 600px){
+       clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    }
+    @media (min-width: 800px) {
+        --radius: 30vw;
+        --label-size: 40px;
+        --label-dot-size: 15px;
+        --label-line-h-current: 4rem;
+        --title-top: 4rem;
+        --info-top: 8rem;
+      }
+    @media (min-width: 1200px) {
+        --label-size: 50px;
+        --border-color: var(--label-color);
+    }
+    
+}
+  .cards {
+    position: absolute;
+    inset: var(--cards-container-padding);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease-in-out var(--duration);
+    list-style: none;
+    top: 12%;
+  }
+
+  .cards li {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    transform-origin:center;
+    display: grid;
+    place-content: center;
+    transform: rotate(calc(var(--i) * 360deg / var(--items)));
+    pointer-events: none;
+  }
+
+  .cards li > label {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transform: translateY(var(--label-offset));
+    width: var(--label-size);
+    height: var(--label-size);
+    cursor: pointer;
+    pointer-events: initial;
+    text-align: center;
+    color: var(--label-color);
+    font-size: clamp(.8rem, 2.5vw + .04rem,1rem);
+    transition: var(--duration) ease-in-out;
+
+  }
+  .cards li > label::before{
+      content: '';
+      position: absolute;
+      top: var(--cards-container-padding);
+      left: 50%;
+      translate: -50% 0;
+      width: var(--label-dot-size);
+      height: var(--label-dot-size);
+      aspect-ratio: 50%;
+      border-radius: 50%;
+      background-color: var(--label-color);
+      transition: background-color var(--duration) ease-in-out;
+  }
+
+  .cards li > label::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    translate: -50% 5px;
+    width: 2px;
+    height: var(--label-line-h);
+    background-color: #905300;
+    transition: height 300ms ease-in-out var(--label-line-delay,0ms);
+  }
+  .cards li > label:hover{
+    --label-color: var(--label-color-hover);
+  }
+
+  .cards > li > h2,
+  .cards > li > p{
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0);
+    transform-origin: center;
+  }
+  .cards > li > h2{
+    top: var(--title-top);
+    opacity: var(--title-opacity,0);
+    translate: 0 var(--title-offset-y);
+    transition: var(--duration) ease-in-out var(--title-delay,0ms);
+  }
+  .cards > li > p{
+    top: var(--info-top);
+    margin: 0 auto;
+    width: var(--info-width);
+    z-index: 2;
+    font-size: clamp(.8rem, 2.5vw + 0.05rem, .9rem);
+    text-align: left;
+    text-wrap: pretty;
+    opacity: var(--info-opacity,0);
+    text-align: center;
+    /*translate: 0 var( --info-offset-y);*/
+    transition: var(--duration) ease-in-out var(--info-delay,0ms);
+  }
+
+  /* update custom properties for checked item */
+  li:has(input:checked){
+      --label-opacity: 1;
+      --label-color: var(--label-color-hover);
+      --label-line-h: var(--label-line-h-current);
+      --label-line-delay: calc(var(--duration) * 2);
+
+      --title-opacity: 1;
+      --title-offset-y: 0;
+      --title-delay: calc(var(--duration) * 3);
+
+      --info-opacity: 1;
+      --info-offset-y: 0;
+      --info-delay: calc(var(--duration) * 4);
+      /*outline: 1px dashed red;*/
+  }
+
+  /* rotate container based on checked radio */
+  .cards:has(input:checked) {
+    transform: rotate(calc(var(--base-rotation) - (var(--index) * var(--full-circle) / var(--items))));
+  }
+  /*
+  this would be so much simpler if we could use counter values as custom property values
+  */
+  .cards:has(li:nth-child(1)>input:checked) { --index: 0; }
+  .cards:has(li:nth-child(2)>input:checked) { --index: 1; }
+  .cards:has(li:nth-child(3)>input:checked) { --index: 2; }
+  .cards:has(li:nth-child(4)>input:checked) { --index: 3; }
+  .cards:has(li:nth-child(5)>input:checked) { --index: 4; }
+  .cards:has(li:nth-child(6)>input:checked) { --index: 5; }
+  .cards:has(li:nth-child(7)>input:checked) { --index: 6; }
+  .cards:has(li:nth-child(8)>input:checked) { --index: 7; }
+  .cards:has(li:nth-child(9)>input:checked) { --index: 8; }
+  .cards:has(li:nth-child(10)>input:checked) { --index: 9; }
 }
 

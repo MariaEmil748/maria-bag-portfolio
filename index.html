@@ -33,28 +33,35 @@
   </ul>
 </nav>
 
-  <div class="container">
-
-  <div class="me-container">
-    <video autoplay muted loop class="main-image">
-    <source src="assets/meeee.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </div>
-
+  <div class="container vh-100 bg-danger">
+    <div class="me-container">
+      <video autoplay muted loop class="main-image">
+      <source src="assets/meeee.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </div>
     <div class="main-title-line1">WELCOME TO</div>
     <div class="main-title-line2">MY <span class="bag-highlight">BAG</span></div>
-    <img src="assets/card.png" alt="Card" class="card-image" />
-    <div class="intro-text main-text-style animated-right" id="introSection">
-      <span class="intro-normal">Hi, I'm </span><span class="maria-name">Maria Emil</span><br>
-      <span class="intro-normal">a passionate UI/UX Designer and Front-End Developer.</span>
-    </div>
-    <img src="assets/vector1.png" alt="Vector Accent" class="intro-vector" />
   </div>
   
+  <div class="bg-success container-fluid g-0 vh-100" id="aboutMe">
+    <div class="row bg-primary h-100">
+      <div class="col-4 ">
+        <img src="assets/card.png" alt="Card" class="card-image" />
+        <img src="assets/vector1.png" alt="Vector Accent" class="intro-vector" />
+      </div>
+
+      <div class="col-8 h-100 d-flex justify-content-center align-items-center bg-warning">
+        <div class="intro-text main-text-style animated-right" id="introSection">
+          <span class="intro-normal">Hi, I'm </span><span class="maria-name">Maria Emil</span><br>
+          <span class="intro-normal">a passionate UI/UX Designer and Front-End Developer.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
-  <div class="container-fluid" id="coffeeContainer">
+  <div class="container-fluid bg-danger" id="coffeeContainer">
     <div class="container-coffee">
       <div class="coffee-header">
         <div class="coffee-header__buttons coffee-header__button-one"></div>
@@ -79,7 +86,7 @@
     </div>
   </div>
 
-  <div class="container-fluid d-flex scroll-container position-relative" id="bagContainer">
+  <div class="container-fluid d-flex scroll-container position-relative bg-danger" id="bagContainer">
     <!-- Vector backgrounds that will fade in/out at each stop point -->
     <div class="vector-background" id="vectorBg1"></div>
     <div class="vector-background" id="vectorBg2"></div>
@@ -94,9 +101,7 @@
     <div class="spacer"></div>
   </div>
 
-
-
-  <div class="container-cv bg-danger " id="cvSection">
+  <div class="container-fluid g-0 vh-100 bg-primary" id="cvContainer">
     <div class="cv-section main-text-style animated-right">
     <span class="cv-text">
       Before we unpack the bag check out the full story.<br>
@@ -105,7 +110,7 @@
     <a href="assets/Maria Emil..CV .pdf" class="cv-btn" download>
       <span>Download CV</span>
     </a>
-  </div>
+    </div>
   </div>
 
   <section class="projects-section animated-left bg-danger" id="projectsSection">

@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // 1. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: rightEdge,
-    y: 575,
+    y: 475,
     rotate: 0, // Straight at right edge
     ease: 'power2.inOut',
     duration: 1.5,

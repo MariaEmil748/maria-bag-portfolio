@@ -1508,8 +1508,8 @@ body {
     width: var(--cards-container-size);
     height: var(--cards-container-size);
     padding: var(--cards-container-padding);  
-    background:  radial-gradient(circle at 50% 50%, #D0A37B 0%, #7C511A 70%) !important;
-    color: #D1A47C;
+    background-image: url(assets/background2.jpg) !important;
+    color: #9f5f06;
 
     @media (width > 600px){
        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
@@ -1588,7 +1588,7 @@ body {
     translate: -50% 5px;
     width: 2px;
     height: var(--label-line-h);
-    background-color: #905300;
+    background-color: #D1A47C;
     transition: height 300ms ease-in-out var(--label-line-delay,0ms);
   }
   .cards li > label:hover{

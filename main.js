@@ -58,6 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
       gsap.set('.bag-stack', { rotate: angle });
     }
   }, 0);
+
   
   // 2. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {

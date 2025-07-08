@@ -763,7 +763,7 @@ body {
   width: 340px;
   height: 420px;
   position: relative;
-  z-index: 5;
+  z-index: 11;
 }
 .bag-layer {
   width: 340px;
@@ -843,11 +843,6 @@ body {
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-#projectsSection {
-  position: relative;
-  top: -300px; /* Move the projects section up */
-}
-
 
 .projects-section {
   position: relative;
@@ -855,6 +850,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  top: -300px;
   /* z-index: 1; */
 }
 
@@ -1696,4 +1692,20 @@ body {
 #vectorBg4 {
   top: 2150px;
   left: 10%;
+}
+
+#experienceSection{
+  position: relative;
+  top: -100px;
+  height: 70vh;
+}
+
+#contactSection{
+  position: relative;
+  height: 70vh;
+}
+
+#techSkillsSection{
+  position: relative;
+  height: 70vh;
 }

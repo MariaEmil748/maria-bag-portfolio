@@ -22,11 +22,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: '.scroll-container',
-      start: 'top 10%',
-      end:'+=2000 50%', // Adjusted to ensure the animation plays through
+      trigger: '.bag-stack',
+      start: 'top 30%',
+      end:'+=2500 50%', // Adjusted to ensure the animation plays through
       scrub: true,
-      // markers: true,
+      markers: false,
     },
   });
 
@@ -34,12 +34,65 @@ window.addEventListener('DOMContentLoaded', () => {
   // Fade in first vector background
   tl.to('#vectorBg1', {
     x:150,
-    y: 100,
+    y: -250,
     opacity: 1,
     scale: 1.7, 
     duration: 1,
     ease: 'power1.inOut'
   }, 0.8);
+
+    // Fade out first vector background and fade in second
+  tl.to('#vectorBg1', {
+    opacity: 0,
+    scale: 0.5,
+    duration: 0.5,
+    ease: 'power1.inOut'
+  }, 2.5);
+
+  tl.to('#vectorBg2', {
+    opacity: 1,
+    x:-20,
+    y:-250,
+    scale: 1.7,
+    duration: 1,
+    ease: 'power1.inOut'
+  }, 3);
+
+    // Fade out second vector background and fade in third
+  tl.to('#vectorBg2', {
+    opacity: 0,
+    scale: 0.5,
+    duration: 0.5,
+    ease: 'power1.inOut'
+  }, 5.5);
+
+  tl.to('#vectorBg3', {
+    opacity: 1,
+    x: 180,
+    y:-250,
+    rotate:-10,
+    scale: 1.7,
+    duration: 1,
+    ease: 'power1.inOut'
+  }, 5.7);
+
+    // Fade out third vector background and fade in fourth
+  tl.to('#vectorBg3', {
+    opacity: 0,
+    scale: 0.5,
+    duration: 0.5,
+    ease: 'power1.inOut'
+  }, 7.5);
+
+  tl.to('#vectorBg4', {
+    opacity: 1,
+    y: 100,
+    x: -20,
+    scale: 1.5,
+    duration: 0.5,
+    ease: 'power1.inOut'
+  }, 9.8);
+
 
   const screenWidth = window.innerWidth;
   const leftEdge = 0;
@@ -48,7 +101,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // 1. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: rightEdge,
-    y: 575,
+    y: 550,
     rotate: 0, // Straight at right edge
     ease: 'power2.inOut',
     duration: 1.5,
@@ -63,69 +116,38 @@ window.addEventListener('DOMContentLoaded', () => {
   // 2. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: leftEdge,
-    y: 1150,
+    y: 1050,
     rotate: 0, // Straight at left edge
     ease: 'power2.inOut',
-    duration: 2,
+    duration: 1.5,
     onUpdate: function() {
       const progress = this.progress();
       const angle = Math.sin(progress * Math.PI) * 18; // 18deg max (right)
       gsap.set('.bag-stack', { rotate: angle });
     }
-  }, 3);
+  }, 2.7);
 
-  // Fade out first vector background and fade in second
-  tl.to('#vectorBg1', {
-    opacity: 0,
-    scale: 0.5,
-    duration: 0.5,
-    ease: 'power1.inOut'
-  }, 2.5);
-
-  tl.to('#vectorBg2', {
-    opacity: 1,
-    x:-20,
-    y:100,
-    scale: 1.5,
-    duration: 1,
-    ease: 'power1.inOut'
-  }, 3.8);
 
   // 3. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: rightEdge,
-    y: 1700,
+    y: 1650,
     rotate: 0,
     ease: 'power2.inOut',
-    duration: 2,
+    duration: 1.5,
     onUpdate: function() {
       const progress = this.progress();
       const angle = -Math.sin(progress * Math.PI) * 12;
       gsap.set('.bag-stack', { rotate: angle });
     }
-  }, 6);
-
-  // Fade out second vector background and fade in third
-  tl.to('#vectorBg2', {
-    opacity: 0,
-    scale: 0.5,
-    duration: 0.5,
-    ease: 'power1.inOut'
   }, 5.5);
 
-  tl.to('#vectorBg3', {
-    opacity: 1,
-    x: 150,
-    y:90,
-    scale: 1.5,
-    duration: 1,
-    ease: 'power1.inOut'
-  }, 7);
+
 
   // 4. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: leftEdge,
-    y: 2200,
+    y: 2050,
     rotate: 0,
     ease: 'power2.inOut',
     duration: 1,
@@ -134,66 +156,57 @@ window.addEventListener('DOMContentLoaded', () => {
       const angle = Math.sin(progress * Math.PI) * 8;
       gsap.set('.bag-stack', { rotate: angle });
     }
-  }, 9);
+  }, 7.6);
 
-  // Fade out third vector background and fade in fourth
-  tl.to('#vectorBg3', {
-    opacity: 0,
-    scale: 0.5,
-    duration: 0.5,
-    ease: 'power1.inOut'
-  }, 8.5);
 
-  tl.to('#vectorBg4', {
-    opacity: 1,
-    y: 100,
-    x: -20,
-    scale: 1.5,
-    duration: 0.5,
-    ease: 'power1.inOut'
-  }, 9.8);
 
 
 
   const tlBag = gsap.timeline({
     scrollTrigger:{
       trigger: '#techSkillsSection',
-      start: '50% 50%',
+      start: '75% 50%',
       end: '+=500 50%', 
       scrub: true,
-      markers: false 
+      markers: true 
     }
   })
 
   tlBag.to('#bagEnvelope', 
     {
-      y: -10,
-      x: 690,
-      rotate: 0,
-      scale: 3.33,
-      duration: 0.5,
-      ease: 'power2.inOut',
-      zIndex: -1,
+      y: -100,
     },0);
 
     tlBag.to('#bagEnvelope',{
-      opacity: 0,
-      duration: 0.5,
-      ease: 'power2.inOut',
-    }, 0.7);
+      x: 650,
+      y: -200,
+      rotation: 0,
+      scale: 1.2,
+      ease: 'power2.inOut'
+    }, 1)
+
+
     
-    tlBag.fromTo('.letter-image', 
-      {
-        display: 'none',
-        opacity: 0,
-      },
-      {
-        display: 'inline-flex',
-        opacity: 1,
-        duration: 0.5,
-        zIndex: 10,
-        ease: 'power2.inOut',
-      },0.5)
+    
+    
+    // tlBag.to('#bagEnvelope',{
+    //   opacity: 0,
+    //   duration: 0.5,
+    //   ease: 'power2.inOut',
+    // }, 0.7);
+    
+    // tlBag.fromTo('.letter-image', 
+    //   {
+    //     display: 'none',
+    //     opacity: 0,
+    //   },
+    //   {
+    //     display: 'inline-flex',
+    //     opacity: 1,
+    //     duration: 0.5,
+    //     zIndex: 10,
+    //     ease: 'power2.inOut',
+    //   },0.5)
 
 
 
@@ -202,7 +215,7 @@ window.addEventListener('DOMContentLoaded', () => {
       scrollTrigger: {
         trigger: el,
         start: 'top 60%',
-        end: '+=200', // Adjusted to ensure the animation plays through
+        end: '+=100', // Adjusted to ensure the animation plays through
         scrub: true,
         // toggleActions: 'play reverse play reverse', // Enable reverse animation
         markers: false // Enable markers for debugging
@@ -220,7 +233,7 @@ window.addEventListener('DOMContentLoaded', () => {
       scrollTrigger: {
         trigger: el,
         start: 'top 60%',
-        end:'+=200',
+        end:'+=100',
         scrub: true,
         markers: false, // Enable markers for debugging
         // toggleActions: 'play reverse play reverse' // Enable reverse animation

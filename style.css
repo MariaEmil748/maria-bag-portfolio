@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #FBF2E9 !important;
+  background: #FFF4EB !important;
   min-height: 100vh;
   overflow-x: hidden !important;
   position: relative;
@@ -21,11 +21,175 @@ body {
   z-index: 10;
 }
 
+/* Add to your style.css */
+
+/* Navbar styles */
+.main-navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  min-width: 340px;
+  max-width: 98vw;
+  border-radius: 20px;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(131,86,45,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar-logo img {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(131,86,45,0.10);
+}
+
+.navbar-brand {
+  font-family: 'Mynerve', cursive;
+  font-size: 1.6rem;
+  color: #602f02 !important;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 10;
+}
+
+.navbar-links li a {
+  font-family: 'Mynerve', cursive;
+  font-size: 1.1rem;
+  color: #BA793F;
+  background: transparent;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 18px;
+  transition: background 0.2s, color 0.2s;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 0;
+  height: 3px;
+  background: #602f02;
+  border-radius: 2px;
+  transition: width 0.35s cubic-bezier(.4,0,.2,1);
+  z-index: 1;
+}
+
+.navbar-links li a:hover::after,
+.navbar-links li a:focus::after {
+  width: 100%;
+}
+
+/* Remove the old hover background and color change for navbar links */
+.navbar-links li a:hover,
+.navbar-links li a:focus {
+  /* background: #B87A41;
+  color: #FBF2E9; */
+  background: none;
+  color: #602f02;
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: 16px;
+}
+
+.navbar-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #83562D;
+  border-radius: 2px;
+  display: block;
+  transition: all 0.3s;
+}
+
+.navbar-toggle-checkbox {
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .main-navbar {
+    flex-wrap: wrap;
+    padding: 0 12px;
+    height: 60px;
+  }
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    background: #FBF2E9;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    box-shadow: 0 8px 24px rgba(131,86,45,0.08);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    z-index: 99;
+  }
+  .navbar-links li {
+    width: 100%;
+  }
+  .navbar-links li a {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 0;
+    border-bottom: 1px solid #e3c7a1;
+  }
+  .navbar-toggle {
+    display: flex;
+  }
+  .navbar-toggle-checkbox:checked ~ .navbar-links {
+    max-height: 400px;
+  }
+}
+
+
 .container {
   position: relative;
+  bottom: 80px; /* Adjust as needed */
   width: 1200px;   /* Adjust as needed for your design */
-  height: 1000px;  /* Adjust as needed for your design */
+  height: 975px;  /* Adjust as needed for your design */
   background: transparent;
+}
+
+.me-container {
+  position: relative;
+  width: 49%;
+  height: 67%;
+  left: 28%;
+  top: 15%;
+  overflow: hidden;
+  border-radius: 1500px !important;
 }
 
 .main-title-line1 {
@@ -58,18 +222,19 @@ body {
 
 .main-image {
   position: absolute;
-  left: 274px;
-  top: 234px;
-  width: 771.74px;
-  height: 891.82px;
-  object-fit: contain;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   pointer-events: none;
+  border-radius: 150px;
 }
 
 .letter-image {
   position: relative;
-	top: 5%;
+	top: -5%;
   right: 5%;
   opacity: 1;
 	width: 600px;
@@ -160,23 +325,6 @@ body {
 	}
 }
 
-.shadow {
-	position: absolute;
-	top: 200px;
-	left: 140%;
-	width: 800px;
-	height: 30px;
-	transition: .4s;
-	transform: translateX(-50%);
-	-webkit-transition: .4s;
-	-webkit-transform: translateX(-50%);
-	-moz-transition: .4s;
-	-moz-transform: translateX(-50%);
-	
-	border-radius: 100%;
-	background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
-}
-
 	.letter-image:hover {
 		.animated-mail {
 			transform: translateY(50px);
@@ -197,10 +345,7 @@ body {
 		.animated-mail .letter {
 			height: 180px;
 		}
-		
-		.shadow {
-			width: 200px;
-		}
+
 	}
 
 .envelope-icons {
@@ -280,7 +425,7 @@ body {
 .card-image {
   position: absolute;
   left: 40px;
-  top: 800px;
+  top: 690px;
   width: 320px;
   height: auto;
   object-fit: contain;
@@ -288,15 +433,13 @@ body {
 }
 
 .intro-text {
-  position: absolute;
-  left: 400px;
-  top: 1200px;
+  position: relative;
+  width: 60%;
+  height: auto;
+  left: 40%;
+  top: 30%;
   font-size: 60px;
   line-height: 1.1;
-  z-index: 3;
-
-  font-family: 'Mynerve', cursive;
-  color: #83562D;
   background: rgba(251, 242, 233, 0.85);
   padding: 18px 24px;
   border-radius: 18px;
@@ -314,9 +457,9 @@ body {
 }
 
 .intro-vector {
-  position: absolute;
+  position: relative;
   left: -170px;
-  top: 1400px;
+  top: 20%;
   width: 500px;
   height: 600px;
   object-fit: contain;
@@ -324,15 +467,18 @@ body {
   rotate: 180deg;
 }
 
-
+.container-fluid{
+  position: relative;
+  height: 100%;
+  margin-top: 35%;
+}
 
 
 
 .container-coffee {
   width: 400px;
   height: 280px;
-  position: relative;
-  top: 630px;
+  position: absolute;
   left: calc(80% - 150px);
 }
 .coffee-header {
@@ -599,13 +745,15 @@ body {
   background-color: #000;
 }
 
-.scroll-container {
-  position: relative;
-  width:100%;
-  top: 525px; 
+
+/* Move the bag and all related functionality a little up */
+#bagContainer {
+  margin-top: 30%; /* Negative margin moves it up */
 }
 
+
 .bag-stack {
+  top: -330px; /* Move the bag images up inside the container if needed */
   width: 340px;
   height: 420px;
   position: relative;
@@ -640,21 +788,27 @@ body {
 }
 .coffee-message {
   position: relative;
-  top: 370px; /* Aligns with coffee machine */
   left: calc(-10% + 270px);  
   width: 50%;
   font-size: 2.9rem;
 }
-.cv-section {
+.container-cv {
   position: relative;
-  /* top: 60px;  */
-  left: 70%;
-  transform: translateX(-50%);
+  left: 0% ;  
+  width: 100%;
+  font-size: 2.9rem;
+}
+
+.cv-section {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  font-size: 2.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  font-size: 2.2rem;
-  z-index: 10;
-  min-width: 140px;
-  max-width: 30vw;
 }
 
 .cv-btn {
@@ -680,6 +834,8 @@ body {
   color: #fff;
   transform: scale(1.06) translateY(-2px);
 }
+
+
 
 .projects-section {
   position: relative;
@@ -838,7 +994,6 @@ body {
   border: none;
   outline: none;
   transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
   margin-top: -1px; /* Was 28px, now a bit higher (less space above) */
   text-align: center;
 }
@@ -926,6 +1081,7 @@ body {
 
 /* Swiper Card Styles */
 .swiper {
+  position: relative;
   width: 500px;   
   height: 320px;  
   margin: 60px auto;
@@ -1124,13 +1280,12 @@ body {
     right: 2%;
     /* bottom: auto; */
     /* left: 32%; */
-    top: 17%;
+    /* top: auto; */
     width: var(--cards-container-size);
     height: var(--cards-container-size);
-    padding: var(--cards-container-padding); 
-    background-color: #b87b41b1 !important;
-    z-index: 0 !important;
-   
+    padding: var(--cards-container-padding);  
+    background: radial-gradient(circle at 50% 50%, #D0A37B 40%, #af6e31 100%) !important;
+    color: #915400;
 
     @media (width > 600px){
        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
@@ -1502,8 +1657,8 @@ body {
 
 .vector-background {
   position: absolute;
-  width: 200px;  /* Adjust size as needed */
-  height: 220px;  /* Adjust size as needed */
+  width: 210px;  /* Adjust size as needed */
+  height: 210px;  /* Adjust size as needed */
   background-image: url('assets/vectorback.svg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -1515,8 +1670,8 @@ body {
 }
 
 #vectorBg1 {
-  top: 525px;
-  right: 20%;
+  top: 545px;
+  right: 19%;
 }
 
 #vectorBg2 {

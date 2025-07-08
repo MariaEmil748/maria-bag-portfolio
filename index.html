@@ -12,12 +12,39 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body>
+  <!-- Add this just after <body> and before <div class="container"> -->
+<nav class="navbar main-navbar">
+  <div class="navbar-logo">
+    <img src="assets/portfolio-logo.png" alt="Maria's Bag" />
+    <span class="navbar-brand">Maria's Bag</span>
+  </div>
+  <input type="checkbox" id="navbar-toggle" class="navbar-toggle-checkbox" />
+  <label for="navbar-toggle" class="navbar-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <ul class="navbar-links">
+    <li><a href="#introSection">About Me</a></li>
+    <li><a href="#projectsSection">My Project</a></li>
+    <li><a href="#experienceSection">Journey</a></li>
+    <li><a href="#techSkillsSection">Tools </a></li>
+    <li><a href="#contactSection">Let's Connect</a></li>
+  </ul>
+</nav>
+
   <div class="container">
+
+  <div class="me-container">
+    <video autoplay muted loop class="main-image">
+    <source src="assets/meeee.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </div>
+
     <div class="main-title-line1">WELCOME TO</div>
     <div class="main-title-line2">MY <span class="bag-highlight">BAG</span></div>
-    <img src="assets/vector.png" alt="Cartoon with background" class="main-image" />
     <img src="assets/card.png" alt="Card" class="card-image" />
-    <div class="intro-text main-text-style animated-right">
+    <div class="intro-text main-text-style animated-right" id="introSection">
       <span class="intro-normal">Hi, I'm </span><span class="maria-name">Maria Emil</span><br>
       <span class="intro-normal">a passionate UI/UX Designer and Front-End Developer.</span>
     </div>
@@ -27,7 +54,7 @@
 
 
 
-  <div class="container-fluid g-0" id="coffeeContainer">
+  <div class="container-fluid" id="coffeeContainer">
     <div class="container-coffee">
       <div class="coffee-header">
         <div class="coffee-header__buttons coffee-header__button-one"></div>
@@ -69,7 +96,7 @@
 
 
 
-  <div class="container-fluid g-0 d-flex align-items-center vh-100" id="cvSection">
+  <div class="container-cv bg-danger " id="cvSection">
     <div class="cv-section main-text-style animated-right">
     <span class="cv-text">
       Before we unpack the bag check out the full story.<br>
@@ -81,7 +108,7 @@
   </div>
   </div>
 
-  <section class="projects-section animated-left vh-100" id="projectsSection">
+  <section class="projects-section animated-left bg-danger" id="projectsSection">
     <h2 class="projects-title main-text-style animated-right">My Projects</h2>
     <div class="projects-grid">
       <div class="project-card ">

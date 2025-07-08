@@ -218,7 +218,7 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(el, {
       scrollTrigger: {
         trigger: el,
-        start: 'top 80%',
+        start: 'top 60%',
         end: '+=200', // Adjusted to ensure the animation plays through
         scrub: true,
         // toggleActions: 'play reverse play reverse', // Enable reverse animation
@@ -236,7 +236,7 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(el, {
       scrollTrigger: {
         trigger: el,
-        start: 'top 30%',
+        start: 'top 60%',
         end:'+=200',
         scrub: true,
         markers: false, // Enable markers for debugging

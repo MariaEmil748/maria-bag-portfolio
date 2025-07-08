@@ -655,7 +655,8 @@ body {
   top: 15px;
   right: 70px;
   background-color: #231f20;
-  transition: top 0.25s cubic-bezier(0.)
+  transition: top 1.25s cubic-bezier(0.4, 0, 0.2, 1)
+              , transform 1.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .coffee-medium__arm::before {
   content: "";
@@ -666,8 +667,8 @@ body {
   left: -35px;
   background-color: #9e9495;
   z-index: 1;
-  transition: top 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: top 1.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 1.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .coffee-medium__cup {
   width: 80px;

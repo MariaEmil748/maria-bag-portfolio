@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // 1. Move to right edge, rotate in the middle, end straight
   tl.to('.bag-stack', {
     x: rightEdge,
-    y: 475,
+    y: 575,
     rotate: 0, // Straight at right edge
     ease: 'power2.inOut',
     duration: 1.5,
@@ -58,24 +58,6 @@ window.addEventListener('DOMContentLoaded', () => {
       gsap.set('.bag-stack', { rotate: angle });
     }
   }, 0);
-
-  
-  tl.fromTo('.project-card', {
-    x: 450,
-    opacity: 0,
-    scale:0.4,
-    zIndex:0,
-    position: 'absolute',
-  },{
-    x:0,
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    zIndex:0,
-    ease: 'power2.inOut',
-    position:'relative',
-    duration: 0.2,
-  },1.5)
   
   // 2. Move to left edge, rotate in the middle, end straight
   tl.to('.bag-stack', {

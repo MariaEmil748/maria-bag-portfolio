@@ -171,6 +171,12 @@ body {
   .navbar-toggle-checkbox:checked ~ .navbar-links {
     max-height: 400px;
   }
+  #experienceSection{
+    height: 20vh !important; /* Adjust height for smaller screens */
+  }
+  #techSkillsSection{
+    height: 20vh !important; /* Adjust height for smaller screens */
+  }
 }
 
 
@@ -1708,4 +1714,13 @@ body {
 #techSkillsSection{
   position: relative;
   height: 70vh;
+}
+@media  (max-width: 900px) {
+  #techSkillsSection {
+    height: 20vh !important;
+  }
+  #experienceSection {
+    height: 20vh !important;
+  }
+  
 }

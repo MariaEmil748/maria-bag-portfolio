@@ -166,47 +166,57 @@ window.addEventListener('DOMContentLoaded', () => {
     scrollTrigger:{
       trigger: '#techSkillsSection',
       start: '75% 50%',
-      end: '+=500 50%', 
+      end: '+=250 50%', 
       scrub: true,
       markers: true 
     }
   })
 
+  // Get dynamic positions
+  const bagEnvelope = document.getElementById('bagEnvelope');
+  const letterImage = document.querySelector('.letter-image');
+  const bagEnvelopeRect = bagEnvelope.getBoundingClientRect();
+  const letterImageRect = letterImage.getBoundingClientRect();
+  
+  // Calculate the difference needed to center the envelope in the letter-image
+  const deltaX = letterImageRect.left + (letterImageRect.width / 2) - (bagEnvelopeRect.left + bagEnvelopeRect.width / 2);
+  const deltaY = letterImageRect.top + (letterImageRect.height / 2) - (bagEnvelopeRect.top + bagEnvelopeRect.height / 2);
+
   tlBag.to('#bagEnvelope', 
     {
-      y: -100,
+      y: -150,
+      rotation: 0,
     },0);
 
     tlBag.to('#bagEnvelope',{
-      x: 650,
-      y: -200,
-      rotation: 0,
-      scale: 1.2,
+      x: deltaX,
+      y: -60,
+      scale: 3.33333,
       ease: 'power2.inOut'
-    }, 1)
+    }, 0.1)
 
 
     
     
     
-    // tlBag.to('#bagEnvelope',{
-    //   opacity: 0,
-    //   duration: 0.5,
-    //   ease: 'power2.inOut',
-    // }, 0.7);
+    tlBag.to('#bagEnvelope',{
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.inOut',
+    }, 0.5);
     
-    // tlBag.fromTo('.letter-image', 
-    //   {
-    //     display: 'none',
-    //     opacity: 0,
-    //   },
-    //   {
-    //     display: 'inline-flex',
-    //     opacity: 1,
-    //     duration: 0.5,
-    //     zIndex: 10,
-    //     ease: 'power2.inOut',
-    //   },0.5)
+    tlBag.fromTo('.letter-image', 
+      {
+        display: 'none',
+        opacity: 0,
+      },
+      {
+        display: 'inline-flex',
+        opacity: 1,
+        duration: 0.5,
+        zIndex: 15,
+        ease: 'power2.inOut',
+      },0.5)
 
 
 

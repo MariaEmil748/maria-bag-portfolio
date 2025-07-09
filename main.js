@@ -168,7 +168,7 @@ window.addEventListener('DOMContentLoaded', () => {
       start: '75% 50%',
       end: '+=250 50%', 
       scrub: true,
-      markers: true 
+      markers: false 
     }
   })
 

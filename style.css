@@ -473,6 +473,68 @@ body {
   rotate: 180deg;
 }
 
+.intro-vector-0 {
+  position: relative;
+  right: -360px;
+  top: -150%;
+  width: 500px;
+  height: 600px;
+  object-fit: contain;
+  z-index: 0;
+  rotate: 0deg;
+  overflow: hidden;
+}
+
+.intro-vector-2 {
+  position: relative;
+  right: -395px;
+  top: 72%;
+  width: 500px;
+  height: 600px;
+  object-fit: contain;
+  z-index: 0;
+  rotate: 0deg;
+  overflow: hidden;
+}
+
+.intro-vector-3 {
+  position: relative;
+  right: 272px;
+  top: 95%;
+  width: 500px;
+  height: 600px;
+  object-fit: contain;
+  z-index: 0;
+  rotate: 0deg;
+  overflow: hidden;
+}
+
+.intro-vector-4 {
+  position: relative;
+  right: -415px;
+  top: 141%;
+  width: 500px;
+  height: 600px;
+  object-fit: contain;
+  z-index: 0;
+  rotate: 0deg;
+  overflow: hidden;
+}
+
+.intro-vector-5 {
+  position: relative;
+  right: 254px;
+  top: 140%;
+  width: 500px;
+  height: 600px;
+  object-fit: contain;
+  z-index: 0;
+  rotate: 0deg;
+  overflow: hidden;
+}
+
+
+
 .container-fluid{
   position: relative;
   height: 100%;
@@ -861,6 +923,7 @@ body {
 }
 
 .projects-title {
+  color: #B87A41;
   margin-bottom: 3px;
   font-size: 2.2rem;
   position: relative;
@@ -1185,7 +1248,7 @@ body {
   padding: 18px 24px;
   border-radius: 18px;
   box-shadow: 0 2px 12px rgba(131, 86, 45, 0.07);
-  color: #000000;
+  color: #B87A41;
   white-space: nowrap;
   position: relative;
   /* left: 80px; Move the title to the right */
@@ -1210,7 +1273,6 @@ body {
   justify-content: flex-start;
   flex-direction: row;
   font-size: 1.3rem;
-  color: #83562D;
   box-shadow: 0 2px 12px rgba(131, 86, 45, 0.07);
   gap: 16px;
   pointer-events: none;

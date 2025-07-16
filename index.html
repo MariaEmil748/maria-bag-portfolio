@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1200, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maria's portflio</title>
   <!-- Import Mynerve font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Mynerve&display=swap" rel="stylesheet">
@@ -12,8 +12,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body>
-  <!-- Add this just after <body> and before <div class="container"> -->
-<nav class="navbar main-navbar">
+  <!-- Add this right after <body> -->
+<div id="smooth-wrapper">
+  <div id="smooth-content">
+    
+    <!-- Your existing content goes here -->
+    <nav class="navbar main-navbar">
   <div class="navbar-logo">
     <img src="assets/portfolio-logo.png" alt="Maria's Bag" />
     <span class="navbar-brand">Maria's Bag</span>
@@ -38,17 +42,18 @@
   <div class="me-container">
     <video autoplay muted loop class="main-image">
     <source src="assets/meeee.mp4" type="video/mp4">
-    Your browser does not support the video tag.
   </div>
 
     <div class="main-title-line1">WELCOME TO</div>
     <div class="main-title-line2">MY <span class="bag-highlight">BAG</span></div>
     <img src="assets/card.png" alt="Card" class="card-image" />
-    <div class="intro-text main-text-style animated-right" id="introSection">
+    <div class="intro-text main-text-style animated-right" id="introSection" data-speed="1.2">
       <span class="intro-normal">Hi, I'm </span><span class="maria-name">Maria Emil</span><br>
       <span class="intro-normal">a passionate UI/UX Designer and Front-End Developer.</span>
     </div>
+    <!-- Example: slower parallax effect -->
     <img src="assets/vector1.png" alt="Vector Accent" class="intro-vector" />
+
     <img src="assets/vector 2.png" alt="Vector Accent" class="intro-vector-2" />
     <img src="assets/vector 3.png" alt="Vector Accent" class="intro-vector-3" />
     <img src="assets/vector 4.png" alt="Vector Accent" class="intro-vector-4" />
@@ -79,13 +84,12 @@
       </div>
       <div class="coffee-footer"></div>
     </div>
-    <div class="coffee-message main-text-style animated-left">
+    <div class="coffee-message main-text-style animated-left" data-speed="1.2">
       <span class="bag-highlight">Caffeine</span> runs in my code, join me for a cup while we check what’s inside the bag.☕
     </div>
-    <div class="cv-section main-text-style animated-right">
+    <div class="cv-section main-text-style animated-right" data-speed="1.2">
       <span class="cv-text">
         Before we unpack the bag check out the full story.<br>
-        <strong>Download my CV:</strong>
       </span>
       <a href="assets/Maria Emil..CV .pdf" class="cv-btn" download>
         <span>Download CV</span>
@@ -162,7 +166,7 @@
           <!-- DRESSCODE (E-Commerce Website) -->
           <p class="project-desc main-text-style">
             Maria’s Bag is a creative portfolio that showcases unique projects and technical skills, all wrapped in an interactive experience.
-</p>
+          </p>
           <a href="https://your-ecommerce-link.com" target="_blank" class="project-link">View Project</a>
         </div>
       </div>

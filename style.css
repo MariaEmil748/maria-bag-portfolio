@@ -1,7 +1,6 @@
 @import "https://codepen.io/cbolson/pen/rNEdgKo.css" layer(template);
 @layer template, demo;
 
-/* ScrollSmoother setup - Desktop only */
 @media (min-width: 901px) {
   #smooth-wrapper {
     overflow: hidden;
@@ -21,7 +20,6 @@
   }
 }
 
-/* Mobile - disable smooth wrapper */
 @media (max-width: 900px) {
   #smooth-wrapper {
     overflow: visible;
@@ -42,7 +40,6 @@
   }
 }
 
-/* Body styles */
 body {
   margin: 0;
   padding: 0;
@@ -64,7 +61,6 @@ body {
   z-index: 10;
 }
 
-/* Navbar styles */
 .main-navbar {
   position: fixed;
   top: 0;
@@ -173,7 +169,6 @@ body {
   display: none;
 }
 
-/* Container styles */
 .container {
   position: relative;
   bottom: 80px;
@@ -265,7 +260,6 @@ body {
   color: #865628;
 }
 
-/* Vector styles */
 .intro-vector,
 .intro-vector-0,
 .intro-vector-2,
@@ -310,14 +304,12 @@ body {
   top: 140%;
 }
 
-/* Container fluid */
 .container-fluid {
   position: relative;
   height: 100%;
   margin-top: 35%;
 }
 
-/* Coffee machine styles */
 .container-coffee {
   width: 400px;
   height: 280px;
@@ -484,7 +476,6 @@ body {
   transform: rotate(45deg);
 }
 
-/* Coffee animations */
 @keyframes liquid {
   0% { height: 0px; opacity: 1; }
   5% { height: 0px; opacity: 1; }
@@ -574,7 +565,6 @@ body {
   background-color: #000;
 }
 
-/* Bag container */
 #bagContainer.scroll-container {
   margin-top: 0;
   position: relative;
@@ -631,7 +621,6 @@ body {
   font-size: 2.9rem;
 }
 
-/* CV section */
 .cv-section {
   position: relative;
   width: 100%;
@@ -664,7 +653,6 @@ body {
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-/* Projects section */
 .projects-section {
   position: relative;
   width: 75%;
@@ -826,7 +814,6 @@ body {
   background: none;
 }
 
-/* Project card hover effects */
 .project-card:hover .project-card-images.overlap-images img:nth-child(1) {
   transform: translateX(-38px) scale(1.07) rotate(-12deg) translateY(0);
   z-index: 2;
@@ -842,7 +829,6 @@ body {
   z-index: 2;
 }
 
-/* Swiper styles */
 .swiper {
   position: relative;
   width: 500px;
@@ -935,7 +921,6 @@ body {
   margin-top: 2px;
 }
 
-/* Timeline styles */
 @layer demo {
   input[type="radio"] {
     position: absolute;
@@ -1129,7 +1114,6 @@ body {
   .cards:has(li:nth-child(10)>input:checked) { --index: 9; }
 }
 
-/* Letter/Contact section */
 .letter-image {
   position: relative;
   top: -5%;
@@ -1299,7 +1283,6 @@ body {
   color: #83562D;
 }
 
-/* Tech skills and section IDs */
 .tech-skills {
   width: 75%;
 }
@@ -1320,7 +1303,6 @@ body {
   height: 70vh;
 }
 
-/* Responsive styles */
 @media (max-width: 900px) {
   .main-navbar {
     flex-wrap: wrap;
@@ -1866,7 +1848,7 @@ body {
     transform-origin: center;
   }
 
-  .letter-image:hover .animated-mail {
+  .letter-image:hover .animated_mail {
     transform: translateY(30px) scale(0.7);
   }
 

@@ -1526,7 +1526,7 @@ body {
     left: -420px;
     --radius: 35vw;
     --label-size: 25px;
-    margin: 40px auto;
+    margin: -700px auto;
     margin-top: 60px;
     font-size: 0.9rem;
     overflow: visible !important; /* Ensure visibility on mobile */
@@ -1723,7 +1723,7 @@ body {
   .card-image {
     width: 120px;
     left: 15px;
-    top: 50vh;
+    top: 45vh;
   }
 
   .intro-text {
@@ -1737,7 +1737,7 @@ body {
     width: 250px;
     height: 160px;
     left: calc(70% - 125px);
-    top: -150%;
+    top: -130%;
     transform: scale(0.7);
   }
 
@@ -1977,7 +1977,7 @@ body {
     width: 220px;
     height: 140px;
     left: calc(80% - 110px);
-    top: -190%;
+    top: -130%;
     transform: scale(0.65);
   }
 

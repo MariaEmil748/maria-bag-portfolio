@@ -1818,7 +1818,7 @@ body {
   .swiper {
     width: 90vw;
     max-width: 400px;
-    height: 250px;
+    height: 300px;
   }
 
   .swiper-slide {
@@ -1847,7 +1847,7 @@ body {
     width: 70vw;
     max-width: 400px;
     height: auto;
-    right: 0;
+    right: 90px;
     top: 0;
     margin: 0 auto;
   }
@@ -1866,7 +1866,7 @@ body {
     transform-origin: center;
   }
 
-  .letter-image:hover .animated_mail {
+  .letter-image:hover .animated-mail {
     transform: translateY(30px) scale(0.7);
   }
 

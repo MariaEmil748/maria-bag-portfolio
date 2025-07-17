@@ -1519,7 +1519,7 @@ body {
   #experienceSection .col-4,
   #experienceSection .col-8 {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 155px;
   }
 
   .cards-container {
@@ -1950,7 +1950,7 @@ body {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 455px) {
   #experienceSection .col-4 {
     align-items: flex-start !important; /* Keep at top */
     padding-top: 5; /* No top padding */
@@ -2055,6 +2055,9 @@ body {
 
   .swiper-slide {
     bottom: 25%;
+  }
+  .swiper-wrapper {
+    height: 125% !important;
   }
   .letter-image {
     width: 40vw;
